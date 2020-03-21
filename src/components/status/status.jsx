@@ -31,8 +31,8 @@ class Status extends PureComponent {
     const sortedCritical = [...this.state.mainData]
       .sort((a, b) => b.critical - a.critical)
       .slice(0, 10);
-    const sortedCasesPerOneMillon = [...this.state.mainData]
-      .sort((a, b) => b.casesPerOneMillon - a.casesPerOneMillon)
+    const sortedCasesPerOneMillion = [...this.state.mainData]
+      .sort((a, b) => b.casesPerOneMillion - a.casesPerOneMillion)
       .slice(0, 10);
     this.setState({
       top10Cases: {
@@ -43,7 +43,7 @@ class Status extends PureComponent {
         recovered: sortedRecovered,
         active: sortedActive,
         critical: sortedCritical,
-        casesPerOneMillon: sortedCasesPerOneMillon
+        casesPerOneMillion: sortedCasesPerOneMillion
       }
     });
   }
@@ -60,8 +60,9 @@ class Status extends PureComponent {
         recovered: [],
         active: [],
         critical: [],
-        casesPerOneMillon: []
-      }
+        casesPerOneMillion: []
+      },
+      sortBy: 'cases'
     };
   }
   componentDidMount() {
@@ -75,25 +76,29 @@ class Status extends PureComponent {
           <thead>
             <tr>
               <th>Country</th>
-              <th>Cases</th>
-              <th>Deaths</th>
-              <th>Recovered</th>
-              <th>Active</th>
-              <th>Critical</th>
+              <th onClick={() => this.setState({ sortBy: 'cases' })}>Cases</th>
+              <th onClick={() => this.setState({ sortBy: 'todayCases' })}>Today's Cases</th>
+              <th onClick={() => this.setState({ sortBy: 'deaths' })}>Deaths</th>
+              <th onClick={() => this.setState({ sortBy: 'todayDeaths' })}>Today's Deaths</th>
+              <th onClick={() => this.setState({ sortBy: 'recovered' })}>Recovered</th>
+              <th onClick={() => this.setState({ sortBy: 'active' })}>Active</th>
+              <th onClick={() => this.setState({ sortBy: 'critical' })}>Critical</th>
+              <th onClick={() => this.setState({ sortBy: 'casesPerOneMillion' })}>Cases per 1M</th>
             </tr>
           </thead>
           <tbody>
-            {this.state.top10Cases.casesPerOneMillon.map(country => {
+            {this.state.top10Cases[this.state.sortBy].map(country => {
               return (
                 <tr>
                   <td>{country.country}</td>
                   <td>{country.cases}</td>
-                  <td>
-                    {country.deaths} <small>/ {country.todayDeaths}</small>
-                  </td>
+                  <td>{country.todayCases}</td>
+                  <td>{country.deaths}</td>
+                  <td>{country.todayDeaths}</td>
                   <td>{country.recovered}</td>
                   <td>{country.active}</td>
                   <td>{country.critical}</td>
+                  <td>{country.casesPerOneMillion}</td>
                 </tr>
               );
             })}
