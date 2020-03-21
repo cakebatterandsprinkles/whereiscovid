@@ -1,5 +1,7 @@
 import React, { PureComponent } from "react";
 import classes from "./status.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSort } from '@fortawesome/free-solid-svg-icons'
 
 class Status extends PureComponent {
   retrieveData() {
@@ -72,33 +74,33 @@ class Status extends PureComponent {
   render() {
     return (
       <div>
-        <table>
+        <table className={classes.table}>
           <thead>
             <tr>
               <th>Country</th>
-              <th onClick={() => this.setState({ sortBy: 'cases' })}>Cases</th>
-              <th onClick={() => this.setState({ sortBy: 'todayCases' })}>Today's Cases</th>
-              <th onClick={() => this.setState({ sortBy: 'deaths' })}>Deaths</th>
-              <th onClick={() => this.setState({ sortBy: 'todayDeaths' })}>Today's Deaths</th>
-              <th onClick={() => this.setState({ sortBy: 'recovered' })}>Recovered</th>
-              <th onClick={() => this.setState({ sortBy: 'active' })}>Active</th>
-              <th onClick={() => this.setState({ sortBy: 'critical' })}>Critical</th>
-              <th onClick={() => this.setState({ sortBy: 'casesPerOneMillion' })}>Cases per 1M</th>
+              <th onClick={() => this.setState({ sortBy: 'cases' })}>Cases <FontAwesomeIcon icon={faSort} /></th>
+              <th onClick={() => this.setState({ sortBy: 'todayCases' })}>Today's Cases <FontAwesomeIcon icon={faSort} /></th>
+              <th onClick={() => this.setState({ sortBy: 'deaths' })}>Deaths <FontAwesomeIcon icon={faSort} /></th>
+              <th onClick={() => this.setState({ sortBy: 'todayDeaths' })}>Today's Deaths <FontAwesomeIcon icon={faSort} /></th>
+              <th onClick={() => this.setState({ sortBy: 'recovered' })}>Recovered <FontAwesomeIcon icon={faSort} /></th>
+              <th onClick={() => this.setState({ sortBy: 'active' })}>Active <FontAwesomeIcon icon={faSort} /></th>
+              <th onClick={() => this.setState({ sortBy: 'critical' })}>Critical <FontAwesomeIcon icon={faSort} /></th>
+              <th onClick={() => this.setState({ sortBy: 'casesPerOneMillion' })}>Cases per 1M <FontAwesomeIcon icon={faSort} /></th>
             </tr>
           </thead>
           <tbody>
             {this.state.top10Cases[this.state.sortBy].map(country => {
               return (
-                <tr>
+                <tr key={country.country}>
                   <td>{country.country}</td>
-                  <td>{country.cases}</td>
-                  <td>{country.todayCases}</td>
-                  <td>{country.deaths}</td>
-                  <td>{country.todayDeaths}</td>
-                  <td>{country.recovered}</td>
-                  <td>{country.active}</td>
-                  <td>{country.critical}</td>
-                  <td>{country.casesPerOneMillion}</td>
+                  <td>{country.cases.toLocaleString()}</td>
+                  <td>{country.todayCases.toLocaleString()}</td>
+                  <td>{country.deaths.toLocaleString()}</td>
+                  <td>{country.todayDeaths.toLocaleString()}</td>
+                  <td>{country.recovered.toLocaleString()}</td>
+                  <td>{country.active.toLocaleString()}</td>
+                  <td>{country.critical.toLocaleString()}</td>
+                  <td>{country.casesPerOneMillion.toLocaleString()}</td>
                 </tr>
               );
             })}
