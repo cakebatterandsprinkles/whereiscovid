@@ -1,0 +1,24 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar__container {
+  display: flex;
+  flex-direction: row;
+  margin-right: 1rem;
+}
+
+.navbar__item {
+  margin: 1rem;
+}
+
+.navbar__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  font-family: 'Oswald', 'sans-serif';
+  font-size: 1.6rem;
+}
