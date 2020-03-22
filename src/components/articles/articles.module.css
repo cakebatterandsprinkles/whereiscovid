@@ -1,0 +1,32 @@
+.article__main__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.article__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  background: url(../../assets/img/tree.jpg) no-repeat center center fixed;
+  /* background-size: cover; */
+}
+
+.article__info {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--gray);
+  text-align: center;
+  color: white;
+  font-weight: bold
+}
+
+.article__main__header {
+  max-width: 70%;
+  padding: 1rem;
+  font-family: "Oswald", "sans-serif";
+  font-weight: bold;
+  font-size: 2rem;
+  align-self: center;
+}

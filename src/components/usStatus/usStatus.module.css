@@ -28,7 +28,8 @@
     width: 100%;
     padding: 1rem 0;
     background-color: var(--gray);
-    color: white
+    color: white;
+    text-align: center;
 }
 
 .table th {
