@@ -2,12 +2,23 @@ import React, { PureComponent } from "react";
 import classes from "./status.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSort } from '@fortawesome/free-solid-svg-icons'
+import countryCoordinates from '../../data/countries'
+import GoogleMapReact from 'google-map-react'
+import CountryMarker from '../countryMarker/countryMarker'
 
 class Status extends PureComponent {
   retrieveData() {
     fetch("https://corona.lmao.ninja/countries")
       .then(blob => blob.json())
-      .then(data => this.setState({ mainData: data }))
+      .then(data => this.setState({
+        mainData: data.map(country => {
+          return {
+            ...country,
+            latitude: countryCoordinates.filter(coord => coord.name === country.country)[0].lat,
+            longitude: countryCoordinates.filter(coord => coord.name === country.country)[0].lng,
+          };
+        })
+      }))
       .then(() => this.sortData());
   }
 
@@ -74,6 +85,19 @@ class Status extends PureComponent {
   render() {
     return (
       <div>
+        <div style={{ height: '60vh', width: '100%' }}>
+          <GoogleMapReact
+            defaultCenter={[30, 0]}
+            defaultZoom={1}
+          >
+            {this.state.mainData.map(country => {
+              return (
+                <CountryMarker key={country.country} lat={country.latitude} lng={country.longitude} data={country} sortBy={this.state.sortBy} />
+              );
+            })}
+          </GoogleMapReact>
+        </div>
+
         <table className={classes.table}>
           <thead>
             <tr>
