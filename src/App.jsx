@@ -18,6 +18,7 @@ history.listen(location => {
 
 function App() {
   ReactGA.initialize("UA-161621107-1");
+  ReactGA.pageview(window.location.pathname);
   return (
     <BrowserRouter history={history}>
       <div className="App">
