@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/whereiscovid/static/css/main.672cbdbc.chunk.css",
+    "main.js": "/whereiscovid/static/js/main.5cfeabdd.chunk.js",
+    "main.js.map": "/whereiscovid/static/js/main.5cfeabdd.chunk.js.map",
+    "runtime-main.js": "/whereiscovid/static/js/runtime-main.97e00128.js",
+    "runtime-main.js.map": "/whereiscovid/static/js/runtime-main.97e00128.js.map",
+    "static/js/2.12f53a82.chunk.js": "/whereiscovid/static/js/2.12f53a82.chunk.js",
+    "static/js/2.12f53a82.chunk.js.map": "/whereiscovid/static/js/2.12f53a82.chunk.js.map",
+    "index.html": "/whereiscovid/index.html",
+    "precache-manifest.c0964c97ef94d375bcd7ba7a8848ced6.js": "/whereiscovid/precache-manifest.c0964c97ef94d375bcd7ba7a8848ced6.js",
+    "service-worker.js": "/whereiscovid/service-worker.js",
+    "static/css/main.672cbdbc.chunk.css.map": "/whereiscovid/static/css/main.672cbdbc.chunk.css.map",
+    "static/js/2.12f53a82.chunk.js.LICENSE.txt": "/whereiscovid/static/js/2.12f53a82.chunk.js.LICENSE.txt",
+    "static/media/rotatedTitle.png": "/whereiscovid/static/media/rotatedTitle.65fe8e5b.png",
+    "static/media/articles.module.css": "/whereiscovid/static/media/tree.80812979.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.97e00128.js",
+    "static/js/2.12f53a82.chunk.js",
+    "static/css/main.672cbdbc.chunk.css",
+    "static/js/main.5cfeabdd.chunk.js"
+  ]
+}
