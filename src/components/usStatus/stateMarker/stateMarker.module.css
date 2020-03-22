@@ -1,0 +1,76 @@
+.marker {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.inverted {
+    background-color: var(--blue) !important;
+}
+
+.small {
+    height: 20px;
+    width: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+}
+
+.medium {
+    height: 30px;
+    width: 30px;
+    margin-left: -15px;
+    margin-top: -15px;
+}
+
+.large {
+    height: 40px;
+    width: 40px;
+    margin-left: -20px;
+    margin-top: -20px;
+}
+
+.x_large {
+    height: 50px;
+    width: 50px;
+    margin-left: -25px;
+    margin-top: -25px;
+}
+
+.red {
+    background-color: var(--red);
+    border: 1px solid white;
+    color: white;
+}
+
+.gray {
+    background-color: var(--gray);
+    border: 1px solid white;
+    color: white;
+}
+
+.green {
+    background-color: var(--green);
+    border: 1px solid white;
+    color: white;
+}
+
+.yellow {
+    background-color: var(--yellow);
+    border: 1px solid white;
+    color: white;
+}
+
+.orange {
+    background-color: var(--orange);
+    border: 1px solid white;
+    color: white;
+}
+
+.purple {
+    background-color: var(--purple);
+    border: 1px solid white;
+    color: white;
+}

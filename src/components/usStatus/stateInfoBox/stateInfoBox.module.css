@@ -1,6 +1,6 @@
 .info__container {
-  width: 10rem;
-  height: 10rem;
+  width: 9rem;
+  height: 9rem;
   z-index: 20;
   background: white;
   color: #202020;
@@ -13,7 +13,7 @@
 .info__container__heading {
   font-weight: bold;
   font-size: 1rem;
-  margin-bottom: .4rem;
+  margin-bottom: .1rem;
 }
 
 .info__container>ul {

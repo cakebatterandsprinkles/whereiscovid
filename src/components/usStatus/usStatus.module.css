@@ -70,3 +70,33 @@
     width: 100%;
     align-items: center;
 }
+
+.active_case {
+    background-color: var(--red) !important;
+    color: white;
+}
+
+.active_death {
+    background-color: var(--gray) !important;
+    color: white;
+}
+
+.active_recovered {
+    background-color: var(--green) !important;
+    color: white;
+}
+
+.active_active {
+    background-color: var(--yellow) !important;
+    color: white;
+}
+
+.active_critical {
+    background-color: var(--orange) !important;
+    color: white;
+}
+
+.active_casesPerMillion {
+    background-color: var(--purple) !important;
+    color: white;
+}
