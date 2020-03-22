@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
 import countryCoordinates from "../../data/countries";
 import GoogleMapReact from "google-map-react";
-import CountryMarker from "../countryMarker/countryMarker";
+import CountryMarker from "./countryMarker/countryMarker";
 import RotatedTitle from "../../assets/img/rotatedTitle.png";
+import InfoBox from "./infoBox/infoBox";
 
 class Status extends PureComponent {
   retrieveData() {
@@ -92,7 +93,10 @@ class Status extends PureComponent {
   render() {
     return (
       <div>
-        <div style={{ height: "60vh", width: "100%" }}>
+        <div
+          style={{ height: "60vh", width: "100%" }}
+          onClick={() => this.setState({ selectedCountry: null })}
+        >
           <GoogleMapReact defaultCenter={[30, 0]} defaultZoom={1}>
             {this.state.mainData.map(country => {
               return (
@@ -102,9 +106,21 @@ class Status extends PureComponent {
                   lng={country.longitude}
                   data={country}
                   sortBy={this.state.sortBy}
+                  onClick={event => {
+                    this.setState({ selectedCountry: country });
+                    event.stopPropagation();
+                  }}
                 />
               );
             })}
+
+            {this.state.selectedCountry ? (
+              <InfoBox
+                countryData={this.state.selectedCountry}
+                lat={this.state.selectedCountry.latitude}
+                lng={this.state.selectedCountry.longitude}
+              />
+            ) : null}
           </GoogleMapReact>
         </div>
         <div className={classes.table__container}>

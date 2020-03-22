@@ -7,13 +7,16 @@
   --purple: #512da8c2;
   --green: #388e3cc2;
   --gray: #616161c2;
+  --blue: #0288D1;
 }
 
 html {
   height: 100%;
 }
 
-p {
+p,
+ul,
+span {
   margin: 0;
   padding: 0
 }
