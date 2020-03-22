@@ -3,6 +3,12 @@
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 2px solid #202020;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  background-color: white;
 }
 
 .navbar__container {
@@ -16,6 +22,7 @@
   text-decoration: none;
   color: #303030;
 }
+
 .navbar__item:hover {
   padding: 1rem;
   text-decoration: none;
@@ -30,6 +37,7 @@
   font-family: "Oswald", "sans-serif";
   font-size: 1.6rem;
 }
+
 .navbar__header__link {
   text-decoration: none;
   color: #202020;

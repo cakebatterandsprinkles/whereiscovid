@@ -1,10 +1,34 @@
 .table {
-    width: 100%;
+    width: 90%;
     max-width: 1400px;
     margin: auto;
     border: none;
     border-collapse: collapse;
     text-align: right;
+}
+
+.table__inner__container {
+    display: flex;
+}
+
+.table__header {
+    margin-top: 1rem;
+    height: 20vh;
+    width: auto;
+}
+
+.table__header__container {
+    width: 10%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.table__info {
+    width: 100%;
+    padding: 1rem 0;
+    background-color: var(--gray);
+    color: white
 }
 
 .table th {
@@ -38,4 +62,11 @@
 .table tbody td:hover {
     padding: .6rem 1.5rem;
     transition: padding 0.1s ease-in;
+}
+
+.table__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
 }

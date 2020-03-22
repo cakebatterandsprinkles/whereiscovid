@@ -9,8 +9,20 @@
   --gray: #616161c2;
 }
 
+html {
+  height: 100%;
+}
+
+p {
+  margin: 0;
+  padding: 0
+}
+
 body {
   margin: 0;
+  min-height: 100%;
+  position: relative;
+  padding: 3.3rem 0 4rem 0;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

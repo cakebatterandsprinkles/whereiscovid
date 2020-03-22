@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Status from "./components/status/status";
 import Navbar from "./components/navbar/navbar";
+import Footer from "./components/footer/footer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path="/protection" component={Status} />
           <Route path="/articles" component={Status} />
         </Switch>
+        <Footer />
       </div>
     </BrowserRouter>
   );
