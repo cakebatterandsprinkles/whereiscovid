@@ -6,10 +6,20 @@ import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
 import Articles from "./components/articles/articles";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import ReactGA from "react-ga";
+
+const history = createBrowserHistory();
+
+history.listen(location => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
 
 function App() {
+  ReactGA.initialize("UA-161621107-1");
   return (
-    <BrowserRouter>
+    <BrowserRouter history={history}>
       <div className="App">
         <Navbar />
         <Switch>
