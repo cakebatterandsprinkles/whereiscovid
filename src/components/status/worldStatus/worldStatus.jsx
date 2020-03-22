@@ -1,12 +1,12 @@
 import React, { PureComponent } from "react";
-import classes from "./status.module.css";
+import classes from "./worldStatus.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
-import countryCoordinates from "../../data/countries";
+import countryCoordinates from "../../../data/countries";
 import GoogleMapReact from "google-map-react";
-import CountryMarker from "./countryMarker/countryMarker";
-import RotatedTitle from "../../assets/img/rotatedTitle.png";
-import InfoBox from "./infoBox/infoBox";
+import CountryMarker from "../countryMarker/countryMarker";
+import RotatedTitle from "../../../assets/img/rotatedTitle.png";
+import InfoBox from "../infoBox/infoBox";
 
 class Status extends PureComponent {
   retrieveData() {
@@ -140,30 +140,86 @@ class Status extends PureComponent {
               <thead>
                 <tr>
                   <th>Country</th>
-                  <th onClick={() => this.setState({ sortBy: "cases" })}>
+                  <th
+                    onClick={() =>
+                      this.setState({
+                        sortBy: "cases"
+                      })
+                    }
+                    className={
+                      this.state.sortBy === "cases" ? classes.active_case : null
+                    }
+                  >
                     Cases <FontAwesomeIcon icon={faSort} />
                   </th>
-                  <th onClick={() => this.setState({ sortBy: "todayCases" })}>
+                  <th
+                    onClick={() => this.setState({ sortBy: "todayCases" })}
+                    className={
+                      this.state.sortBy === "todayCases"
+                        ? classes.active_case
+                        : null
+                    }
+                  >
                     Today's Cases <FontAwesomeIcon icon={faSort} />
                   </th>
-                  <th onClick={() => this.setState({ sortBy: "deaths" })}>
+                  <th
+                    onClick={() => this.setState({ sortBy: "deaths" })}
+                    className={
+                      this.state.sortBy === "deaths"
+                        ? classes.active_death
+                        : null
+                    }
+                  >
                     Deaths <FontAwesomeIcon icon={faSort} />
                   </th>
-                  <th onClick={() => this.setState({ sortBy: "todayDeaths" })}>
+                  <th
+                    onClick={() => this.setState({ sortBy: "todayDeaths" })}
+                    className={
+                      this.state.sortBy === "todayDeaths"
+                        ? classes.active_death
+                        : null
+                    }
+                  >
                     Today's Deaths <FontAwesomeIcon icon={faSort} />
                   </th>
-                  <th onClick={() => this.setState({ sortBy: "recovered" })}>
+                  <th
+                    onClick={() => this.setState({ sortBy: "recovered" })}
+                    className={
+                      this.state.sortBy === "recovered"
+                        ? classes.active_recovered
+                        : null
+                    }
+                  >
                     Recovered <FontAwesomeIcon icon={faSort} />
                   </th>
-                  <th onClick={() => this.setState({ sortBy: "active" })}>
+                  <th
+                    onClick={() => this.setState({ sortBy: "active" })}
+                    className={
+                      this.state.sortBy === "active"
+                        ? classes.active_active
+                        : null
+                    }
+                  >
                     Active <FontAwesomeIcon icon={faSort} />
                   </th>
-                  <th onClick={() => this.setState({ sortBy: "critical" })}>
+                  <th
+                    onClick={() => this.setState({ sortBy: "critical" })}
+                    className={
+                      this.state.sortBy === "critical"
+                        ? classes.active_critical
+                        : null
+                    }
+                  >
                     Critical <FontAwesomeIcon icon={faSort} />
                   </th>
                   <th
                     onClick={() =>
                       this.setState({ sortBy: "casesPerOneMillion" })
+                    }
+                    className={
+                      this.state.sortBy === "casesPerOneMillion"
+                        ? classes.active_casesPerMillion
+                        : null
                     }
                   >
                     Cases per 1M <FontAwesomeIcon icon={faSort} />

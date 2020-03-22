@@ -21,7 +21,20 @@ const Navbar = props => (
           fontWeight: "bold"
         }}
       >
-        Status
+        World Status
+      </NavLink>
+      <NavLink
+        className={classes.navbar__item}
+        exact
+        to="/us-status"
+        activeClassName="navbar__item--active"
+        activeStyle={{
+          backgroundColor: "var(--gray)",
+          color: "white",
+          fontWeight: "bold"
+        }}
+      >
+        US Status
       </NavLink>
       <NavLink
         className={classes.navbar__item}
