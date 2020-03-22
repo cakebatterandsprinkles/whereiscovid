@@ -4,6 +4,7 @@ import WorldStatus from "./components/status/worldStatus/worldStatus";
 import UsStatus from "./components/usStatus/usStatus";
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
+import Articles from "./components/articles/articles";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -12,8 +13,7 @@ function App() {
       <div className="App">
         <Navbar />
         <Switch>
-          <Route path="/protection" component={WorldStatus} />
-          <Route path="/articles" component={WorldStatus} />
+          <Route path="/articles" component={Articles} />
           <Route path="/us-status" component={UsStatus} />
           <Route path="/" component={WorldStatus} />
         </Switch>
