@@ -1,0 +1,8 @@
+.info__container {
+  width: 5rem;
+  height: 5rem;
+  z-index: 20;
+  background: white;
+  color: #202020;
+  border-radius: 1rem;
+}
