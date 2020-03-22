@@ -97,7 +97,9 @@ class Status extends PureComponent {
           style={{ height: "60vh", width: "100%" }}
           onClick={() => this.setState({ selectedCountry: null })}
         >
-          <GoogleMapReact defaultCenter={[30, 0]} defaultZoom={1}>
+          <GoogleMapReact defaultCenter={[30, 0]} defaultZoom={1} bootstrapURLKeys={{
+            key: 'AIzaSyA3jSaFgByAz1ZNwNWJXj_HmoEMntLPEj8', language: 'en'
+          }}>
             {this.state.mainData.map(country => {
               return (
                 <CountryMarker
@@ -246,7 +248,7 @@ class Status extends PureComponent {
             </table>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }

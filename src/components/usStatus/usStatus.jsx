@@ -88,7 +88,9 @@ class usStatus extends PureComponent {
           style={{ height: "60vh", width: "100%" }}
           onClick={() => this.setState({ selectedState: null })}
         >
-          <GoogleMapReact defaultCenter={[37.09, -95.71]} defaultZoom={4}>
+          <GoogleMapReact defaultCenter={[37.09, -95.71]} defaultZoom={4} bootstrapURLKeys={{
+            key: 'AIzaSyA3jSaFgByAz1ZNwNWJXj_HmoEMntLPEj8', language: 'en'
+          }}>
             {this.state.mainData.map(usState => {
               return (
                 <StateMarker
