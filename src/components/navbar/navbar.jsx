@@ -16,7 +16,7 @@ const Navbar = props => (
         exact
         activeClassName="navbar__item--active"
         activeStyle={{
-          backgroundColor: "#82bfcf",
+          backgroundColor: "var(--gray)",
           color: "white",
           fontWeight: "bold"
         }}
@@ -28,7 +28,7 @@ const Navbar = props => (
         to="/protection"
         activeClassName="navbar__item--active"
         activeStyle={{
-          backgroundColor: "#606060",
+          backgroundColor: "var(--gray)",
           color: "white",
           fontWeight: "bold"
         }}
@@ -40,7 +40,7 @@ const Navbar = props => (
         to="/articles"
         activeClassName="navbar__item--active"
         activeStyle={{
-          backgroundColor: "#606060",
+          backgroundColor: "var(--gray)",
           color: "white",
           fontWeight: "bold"
         }}

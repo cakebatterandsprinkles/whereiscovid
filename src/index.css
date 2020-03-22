@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Oswald:wght@400;700&display=swap');
 
+:root {
+  --red: #d32f2fc2;
+  --yellow: #fbc02dc2;
+  --orange: #f57c00c2;
+  --purple: #512da8c2;
+  --green: #388e3cc2;
+  --gray: #616161c2;
+}
+
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
