@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/whereiscovid/static/css/main.672cbdbc.chunk.css",
-    "main.js": "/whereiscovid/static/js/main.5cfeabdd.chunk.js",
-    "main.js.map": "/whereiscovid/static/js/main.5cfeabdd.chunk.js.map",
-    "runtime-main.js": "/whereiscovid/static/js/runtime-main.97e00128.js",
-    "runtime-main.js.map": "/whereiscovid/static/js/runtime-main.97e00128.js.map",
-    "static/js/2.12f53a82.chunk.js": "/whereiscovid/static/js/2.12f53a82.chunk.js",
-    "static/js/2.12f53a82.chunk.js.map": "/whereiscovid/static/js/2.12f53a82.chunk.js.map",
-    "index.html": "/whereiscovid/index.html",
-    "precache-manifest.c0964c97ef94d375bcd7ba7a8848ced6.js": "/whereiscovid/precache-manifest.c0964c97ef94d375bcd7ba7a8848ced6.js",
-    "service-worker.js": "/whereiscovid/service-worker.js",
-    "static/css/main.672cbdbc.chunk.css.map": "/whereiscovid/static/css/main.672cbdbc.chunk.css.map",
-    "static/js/2.12f53a82.chunk.js.LICENSE.txt": "/whereiscovid/static/js/2.12f53a82.chunk.js.LICENSE.txt",
-    "static/media/rotatedTitle.png": "/whereiscovid/static/media/rotatedTitle.65fe8e5b.png",
-    "static/media/articles.module.css": "/whereiscovid/static/media/tree.80812979.jpg"
+    "main.css": "/static/css/main.c013add3.chunk.css",
+    "main.js": "/static/js/main.23a6fc2c.chunk.js",
+    "main.js.map": "/static/js/main.23a6fc2c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8c5cafd6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8c5cafd6.js.map",
+    "static/js/2.12f53a82.chunk.js": "/static/js/2.12f53a82.chunk.js",
+    "static/js/2.12f53a82.chunk.js.map": "/static/js/2.12f53a82.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.260f21561a13c45b242699c920519bca.js": "/precache-manifest.260f21561a13c45b242699c920519bca.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.c013add3.chunk.css.map": "/static/css/main.c013add3.chunk.css.map",
+    "static/js/2.12f53a82.chunk.js.LICENSE.txt": "/static/js/2.12f53a82.chunk.js.LICENSE.txt",
+    "static/media/rotatedTitle.png": "/static/media/rotatedTitle.65fe8e5b.png",
+    "static/media/articles.module.css": "/static/media/tree.80812979.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.97e00128.js",
+    "static/js/runtime-main.8c5cafd6.js",
     "static/js/2.12f53a82.chunk.js",
-    "static/css/main.672cbdbc.chunk.css",
-    "static/js/main.5cfeabdd.chunk.js"
+    "static/css/main.c013add3.chunk.css",
+    "static/js/main.23a6fc2c.chunk.js"
   ]
 }
