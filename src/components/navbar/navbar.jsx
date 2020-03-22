@@ -5,15 +5,15 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = props => (
   <div className={classes.navbar}>
     <div className={classes.navbar__header}>
-      <Link to="/" exact className={classes.navbar__header__link}>
+      <Link to="/" className={classes.navbar__header__link}>
         Where is COVID-19?
       </Link>
     </div>
     <div className={classes.navbar__container}>
       <NavLink
         className={classes.navbar__item}
-        to="/"
         exact
+        to="/"
         activeClassName="navbar__item--active"
         activeStyle={{
           backgroundColor: "var(--gray)",

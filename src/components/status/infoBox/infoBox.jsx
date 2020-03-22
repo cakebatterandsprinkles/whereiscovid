@@ -4,15 +4,54 @@ import classes from "./infoBox.module.css";
 function InfoBox(props) {
   return (
     <div className={classes.info__container}>
-      <ul>
-        <li>Cases: {props.countryData.cases}</li>
-        <li>Today's Cases: {props.countryData.todayCases}</li>
-        <li>Deaths: {props.countryData.deaths}</li>
-        <li>Today's Deaths: {props.countryData.todayDeaths}</li>
-        <li>Recovered: {props.countryData.recovered}</li>
-        <li>Active: {props.countryData.active}</li>
-        <li>Critical: {props.countryData.critical}</li>
-        <li>Cases Per One Million: {props.countryData.casesPerOneMillion}</li>
+      <ul className={classes.info__container__ul}>
+        <li>
+          <span className={classes.info__container__heading}>
+            {props.countryData.country}
+          </span>
+        </li>
+        <li>
+          <span className={classes.info__container__title}>Cases: &nbsp;</span>{" "}
+          {props.countryData.cases.toLocaleString()}
+        </li>
+        <li>
+          <span className={classes.info__container__title}>
+            Today's Cases: &nbsp;
+          </span>
+          {props.countryData.todayCases.toLocaleString()}
+        </li>
+        <li>
+          <span className={classes.info__container__title}>Deaths: &nbsp;</span>
+          {props.countryData.deaths.toLocaleString()}
+        </li>
+        <li>
+          <span className={classes.info__container__title}>
+            Today's Deaths: &nbsp;
+          </span>
+          {props.countryData.todayDeaths.toLocaleString()}
+        </li>
+        <li>
+          <span className={classes.info__container__title}>
+            Recovered: &nbsp;
+          </span>
+          {props.countryData.recovered.toLocaleString()}
+        </li>
+        <li>
+          <span className={classes.info__container__title}>Active: &nbsp;</span>
+          {props.countryData.active.toLocaleString()}
+        </li>
+        <li>
+          <span className={classes.info__container__title}>
+            Critical: &nbsp;
+          </span>
+          {props.countryData.critical.toLocaleString()}
+        </li>
+        <li>
+          <span className={classes.info__container__title}>
+            Cases Per One Million: &nbsp;
+          </span>
+          {props.countryData.casesPerOneMillion.toLocaleString()}
+        </li>
       </ul>
     </div>
   );
