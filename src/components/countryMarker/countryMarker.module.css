@@ -1,0 +1,14 @@
+.marker {
+    background-color: white;
+    border: 1px solid red;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin-left: -25px;
+    margin-top: -25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+}
