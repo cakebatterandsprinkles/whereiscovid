@@ -1,8 +1,17 @@
+.invisible {
+  display: none;
+}
+
+.visible {
+  display: inline-block;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 2px solid #202020;
+  height: 3.3rem;
   position: fixed;
   left: 0;
   right: 0;
@@ -14,16 +23,11 @@
 .navbar__container {
   display: flex;
   flex-direction: row;
-  margin-right: 1rem;
+  padding-right: 1rem;
+  position: relative;
 }
 
 .navbar__item {
-  padding: 1rem;
-  text-decoration: none;
-  color: #303030;
-}
-
-.navbar__item:hover {
   padding: 1rem;
   text-decoration: none;
   color: #303030;
@@ -41,4 +45,21 @@
 .navbar__header__link {
   text-decoration: none;
   color: #202020;
+}
+
+@media (max-width: 850px) {
+  .navbar__header {
+    font-size: 1.2rem;
+  }
+
+  .navbar__item {
+    font-size: 0.8rem;
+    padding: 1.15rem 0.5rem;
+  }
+}
+
+@media (max-width: 250px) {
+  .navbar__header {
+    font-size: .9rem;
+  }
 }

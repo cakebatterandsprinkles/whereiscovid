@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import classes from "./worldStatus.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
-import countryCoordinates from "../../../data/countries";
+import countryCoordinates from "../../../data/countries.json";
 import GoogleMapReact from "google-map-react";
 import CountryMarker from "../countryMarker/countryMarker";
 import RotatedTitle from "../../../assets/img/rotatedTitle.png";
@@ -83,7 +83,8 @@ class Status extends PureComponent {
         critical: [],
         casesPerOneMillion: []
       },
-      sortBy: "cases"
+      sortBy: "cases",
+      selectedCountry: null
     };
   }
   componentDidMount() {
@@ -97,9 +98,14 @@ class Status extends PureComponent {
           style={{ height: "60vh", width: "100%" }}
           onClick={() => this.setState({ selectedCountry: null })}
         >
-          <GoogleMapReact defaultCenter={[30, 0]} defaultZoom={1} bootstrapURLKeys={{
-            key: 'AIzaSyA3jSaFgByAz1ZNwNWJXj_HmoEMntLPEj8', language: 'en'
-          }}>
+          <GoogleMapReact
+            defaultCenter={[30, 0]}
+            defaultZoom={1}
+            bootstrapURLKeys={{
+              key: "AIzaSyA3jSaFgByAz1ZNwNWJXj_HmoEMntLPEj8",
+              language: "en"
+            }}
+          >
             {this.state.mainData.map(country => {
               return (
                 <CountryMarker
@@ -248,7 +254,7 @@ class Status extends PureComponent {
             </table>
           </div>
         </div>
-      </div >
+      </div>
     );
   }
 }

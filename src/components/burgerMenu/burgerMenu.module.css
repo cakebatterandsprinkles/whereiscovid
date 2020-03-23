@@ -1,0 +1,48 @@
+.menu__icon {
+  font-size: 1.2rem;
+  padding: 1.15rem 0.5rem;
+}
+
+.menu__icon:hover {
+  cursor: pointer
+}
+
+.navbar__side__x {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar__side__container {
+  width: 9rem;
+  height: 100vh;
+  background-color: #cfcfcf;
+  z-index: 30;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0
+}
+
+.backdrop {
+  width: 100%;
+  height: 100%;
+  z-index: 29;
+  background-color: var(--gray);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.navbar__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__item {
+  text-decoration: none;
+  padding: .5rem 1rem;
+  color: #202020;
+  font-size: 1rem;
+}
