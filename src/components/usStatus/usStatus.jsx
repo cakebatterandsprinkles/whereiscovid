@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Fragment } from "react";
 import classes from "./usStatus.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
@@ -61,6 +61,24 @@ class usStatus extends PureComponent {
     });
   }
 
+  handleWindowResize() {
+    window.addEventListener("resize", e => {
+      if (e.srcElement.outerWidth >= 750) {
+        this.setState({ isSmallScreen: false });
+      } else if (e.srcElement.outerWidth < 750) {
+        this.setState({ isSmallScreen: true });
+      }
+    });
+  }
+
+  handleFirstTable() {
+    if (window.outerWidth >= 750) {
+      this.setState({ isSmallScreen: false });
+    } else if (window.outerWidth < 750) {
+      this.setState({ isSmallScreen: true });
+    }
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -74,11 +92,14 @@ class usStatus extends PureComponent {
         active: []
       },
       sortBy: "cases",
-      selectedState: null
+      selectedState: null,
+      isSmallScreen: false
     };
   }
   componentDidMount() {
     this.retrieveData();
+    this.handleFirstTable();
+    this.handleWindowResize();
   }
 
   render() {
@@ -88,9 +109,14 @@ class usStatus extends PureComponent {
           style={{ height: "60vh", width: "100%" }}
           onClick={() => this.setState({ selectedState: null })}
         >
-          <GoogleMapReact defaultCenter={[37.09, -95.71]} defaultZoom={4} bootstrapURLKeys={{
-            key: 'AIzaSyA3jSaFgByAz1ZNwNWJXj_HmoEMntLPEj8', language: 'en'
-          }}>
+          <GoogleMapReact
+            defaultCenter={[37.09, -95.71]}
+            defaultZoom={4}
+            bootstrapURLKeys={{
+              key: "AIzaSyA3jSaFgByAz1ZNwNWJXj_HmoEMntLPEj8",
+              language: "en"
+            }}
+          >
             {this.state.mainData.map(usState => {
               return (
                 <StateMarker
@@ -175,26 +201,30 @@ class usStatus extends PureComponent {
                   >
                     Today's Deaths <FontAwesomeIcon icon={faSort} />
                   </th>
-                  <th
-                    onClick={() => this.setState({ sortBy: "recovered" })}
-                    className={
-                      this.state.sortBy === "recovered"
-                        ? classes.active_recovered
-                        : null
-                    }
-                  >
-                    Recovered <FontAwesomeIcon icon={faSort} />
-                  </th>
-                  <th
-                    onClick={() => this.setState({ sortBy: "active" })}
-                    className={
-                      this.state.sortBy === "active"
-                        ? classes.active_active
-                        : null
-                    }
-                  >
-                    Active <FontAwesomeIcon icon={faSort} />
-                  </th>
+                  {this.state.isSmallScreen ? null : (
+                    <Fragment>
+                      <th
+                        onClick={() => this.setState({ sortBy: "recovered" })}
+                        className={
+                          this.state.sortBy === "recovered"
+                            ? classes.active_recovered
+                            : null
+                        }
+                      >
+                        Recovered <FontAwesomeIcon icon={faSort} />
+                      </th>
+                      <th
+                        onClick={() => this.setState({ sortBy: "active" })}
+                        className={
+                          this.state.sortBy === "active"
+                            ? classes.active_active
+                            : null
+                        }
+                      >
+                        Active <FontAwesomeIcon icon={faSort} />
+                      </th>
+                    </Fragment>
+                  )}
                 </tr>
               </thead>
               <tbody>
@@ -206,8 +236,12 @@ class usStatus extends PureComponent {
                       <td>{usState.todayCases.toLocaleString()}</td>
                       <td>{usState.deaths.toLocaleString()}</td>
                       <td>{usState.todayDeaths.toLocaleString()}</td>
-                      <td>{usState.recovered.toLocaleString()}</td>
-                      <td>{usState.active.toLocaleString()}</td>
+                      {this.state.isSmallScreen ? null : (
+                        <Fragment>
+                          <td>{usState.recovered.toLocaleString()}</td>
+                          <td>{usState.active.toLocaleString()}</td>
+                        </Fragment>
+                      )}
                     </tr>
                   );
                 })}

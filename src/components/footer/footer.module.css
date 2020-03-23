@@ -17,3 +17,11 @@
   font-weight: bold;
   color: var(--purple);
 }
+
+@media(max-width: 900px) {
+
+  .footer__link,
+  .footer__text {
+    font-size: .8rem
+  }
+}

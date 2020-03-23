@@ -15,7 +15,6 @@ class Navbar extends PureComponent {
 
   handleWindowResize() {
     window.addEventListener("resize", e => {
-      console.log(e);
       if (e.srcElement.outerWidth < 600) {
         this.setState({ visibilityClass: classes.invisible });
       } else if (e.srcElement.outerWidth >= 600) {

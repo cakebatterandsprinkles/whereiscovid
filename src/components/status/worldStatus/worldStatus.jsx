@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Fragment } from "react";
 import classes from "./worldStatus.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
@@ -69,6 +69,28 @@ class Status extends PureComponent {
     });
   }
 
+  handleWindowResize() {
+    window.addEventListener("resize", e => {
+      if (e.srcElement.outerWidth < 900 && e.srcElement.outerWidth >= 600) {
+        this.setState({ isSmallScreen: true });
+      } else if (e.srcElement.outerWidth >= 900) {
+        this.setState({ isSmallScreen: false, isXSmallScreen: false });
+      } else if (e.srcElement.outerWidth < 600) {
+        this.setState({ isXSmallScreen: true });
+      }
+    });
+  }
+
+  handleFirstTable() {
+    if (window.outerWidth >= 900) {
+      this.setState({ isSmallScreen: false, isXSmallScreen: false });
+    } else if (window.outerWidth >= 600 && window.outerWidth < 900) {
+      this.setState({ isSmallScreen: true });
+    } else if (window.outerWidth < 600) {
+      this.setState({ isXSmallScreen: true });
+    }
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -85,11 +107,14 @@ class Status extends PureComponent {
       },
       sortBy: "cases",
       selectedCountry: null,
-      isSmallScreen: false
+      isSmallScreen: false,
+      isXSmallScreen: false
     };
   }
   componentDidMount() {
     this.retrieveData();
+    this.handleFirstTable();
+    this.handleWindowResize();
   }
 
   render() {
@@ -191,48 +216,56 @@ class Status extends PureComponent {
                   >
                     Today's Deaths <FontAwesomeIcon icon={faSort} />
                   </th>
-                  <th
-                    onClick={() => this.setState({ sortBy: "recovered" })}
-                    className={
-                      this.state.sortBy === "recovered"
-                        ? classes.active_recovered
-                        : null
-                    }
-                  >
-                    Recovered <FontAwesomeIcon icon={faSort} />
-                  </th>
-                  <th
-                    onClick={() => this.setState({ sortBy: "active" })}
-                    className={
-                      this.state.sortBy === "active"
-                        ? classes.active_active
-                        : null
-                    }
-                  >
-                    Active <FontAwesomeIcon icon={faSort} />
-                  </th>
-                  <th
-                    onClick={() => this.setState({ sortBy: "critical" })}
-                    className={
-                      this.state.sortBy === "critical"
-                        ? classes.active_critical
-                        : null
-                    }
-                  >
-                    Critical <FontAwesomeIcon icon={faSort} />
-                  </th>
-                  <th
-                    onClick={() =>
-                      this.setState({ sortBy: "casesPerOneMillion" })
-                    }
-                    className={
-                      this.state.sortBy === "casesPerOneMillion"
-                        ? classes.active_casesPerMillion
-                        : null
-                    }
-                  >
-                    Cases per 1M <FontAwesomeIcon icon={faSort} />
-                  </th>
+                  {this.state.isSmallScreen ? null : (
+                    <Fragment>
+                      <th
+                        onClick={() => this.setState({ sortBy: "recovered" })}
+                        className={
+                          this.state.sortBy === "recovered"
+                            ? classes.active_recovered
+                            : null
+                        }
+                      >
+                        Recovered <FontAwesomeIcon icon={faSort} />
+                      </th>
+                      <th
+                        onClick={() => this.setState({ sortBy: "active" })}
+                        className={
+                          this.state.sortBy === "active"
+                            ? classes.active_active
+                            : null
+                        }
+                      >
+                        Active <FontAwesomeIcon icon={faSort} />
+                      </th>
+                      <th
+                        onClick={() => this.setState({ sortBy: "critical" })}
+                        className={
+                          this.state.sortBy === "critical"
+                            ? classes.active_critical
+                            : null
+                        }
+                      >
+                        Critical <FontAwesomeIcon icon={faSort} />
+                      </th>{" "}
+                    </Fragment>
+                  )}
+                  {this.state.isXSmallScreen ? null : (
+                    <Fragment>
+                      <th
+                        onClick={() =>
+                          this.setState({ sortBy: "casesPerOneMillion" })
+                        }
+                        className={
+                          this.state.sortBy === "casesPerOneMillion"
+                            ? classes.active_casesPerMillion
+                            : null
+                        }
+                      >
+                        Cases per 1M <FontAwesomeIcon icon={faSort} />
+                      </th>
+                    </Fragment>
+                  )}
                 </tr>
               </thead>
               <tbody>
@@ -244,10 +277,16 @@ class Status extends PureComponent {
                       <td>{country.todayCases.toLocaleString()}</td>
                       <td>{country.deaths.toLocaleString()}</td>
                       <td>{country.todayDeaths.toLocaleString()}</td>
-                      <td>{country.recovered.toLocaleString()}</td>
-                      <td>{country.active.toLocaleString()}</td>
-                      <td>{country.critical.toLocaleString()}</td>
-                      <td>{country.casesPerOneMillion.toLocaleString()}</td>
+                      {this.state.isSmallScreen ? null : (
+                        <Fragment>
+                          <td>{country.recovered.toLocaleString()}</td>
+                          <td>{country.active.toLocaleString()}</td>
+                          <td>{country.critical.toLocaleString()}</td>{" "}
+                        </Fragment>
+                      )}
+                      {this.state.isXSmallScreen ? null : (
+                        <td>{country.casesPerOneMillion.toLocaleString()}</td>
+                      )}
                     </tr>
                   );
                 })}

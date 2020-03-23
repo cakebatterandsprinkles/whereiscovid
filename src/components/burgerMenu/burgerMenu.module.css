@@ -13,7 +13,7 @@
 }
 
 .navbar__side__container {
-  width: 9rem;
+  width: 15rem;
   height: 100vh;
   background-color: #cfcfcf;
   z-index: 30;
@@ -42,7 +42,7 @@
 
 .navbar__item {
   text-decoration: none;
-  padding: .5rem 1rem;
+  padding: 1rem 2rem;
   color: #202020;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
