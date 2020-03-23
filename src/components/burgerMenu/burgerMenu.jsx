@@ -61,6 +61,7 @@ class BurgerMenu extends PureComponent {
                     color: "white",
                     fontWeight: "bold"
                   }}
+                  onClick={this.handleClose}
                 >
                   World Status
                 </NavLink>
@@ -74,6 +75,7 @@ class BurgerMenu extends PureComponent {
                     color: "white",
                     fontWeight: "bold"
                   }}
+                  onClick={this.handleClose}
                 >
                   US Status
                 </NavLink>
@@ -86,6 +88,7 @@ class BurgerMenu extends PureComponent {
                     color: "white",
                     fontWeight: "bold"
                   }}
+                  onClick={this.handleClose}
                 >
                   Articles
                 </NavLink>

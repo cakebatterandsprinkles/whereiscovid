@@ -30,3 +30,9 @@
   font-size: 2rem;
   align-self: center;
 }
+
+@media (max-width: 900px) {
+  .article__info>p {
+    font-size: .7rem;
+  }
+}
