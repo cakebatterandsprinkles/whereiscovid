@@ -15,16 +15,17 @@ class Navbar extends PureComponent {
 
   handleWindowResize() {
     window.addEventListener("resize", e => {
-      if (e.srcElement.innerWidth < 600) {
+      console.log(e);
+      if (e.srcElement.outerWidth < 600) {
         this.setState({ visibilityClass: classes.invisible });
-      } else if (e.srcElement.innerWidth >= 600) {
+      } else if (e.srcElement.outerWidth >= 600) {
         this.setState({ visibilityClass: classes.visible });
       }
     });
   }
 
   handleFirstNavbar() {
-    if (window.innerWidth >= 600) {
+    if (window.outerWidth >= 600) {
       this.setState({ visibilityClass: classes.visible });
     } else {
       this.setState({ visibilityClass: classes.invisible });
