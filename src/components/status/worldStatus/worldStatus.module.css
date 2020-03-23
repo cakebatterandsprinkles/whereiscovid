@@ -101,3 +101,37 @@
     background-color: var(--purple) !important;
     color: white;
 }
+
+@media(max-width:1400px) and (min-width: 1130px) {
+    .table {
+        width: 70%;
+        max-width: 1000px;
+    }
+
+    .table th {
+        padding: .2rem .6rem;
+        font-size: 1rem;
+    }
+
+    .table td {
+        padding: .2rem .6rem;
+        font-size: 1rem;
+    }
+}
+
+@media(max-width:1130px) and (min-width: 900px) {
+    .table {
+        width: 70%;
+        max-width: 700px;
+    }
+
+    .table th {
+        padding: .1rem .3rem;
+        font-size: .8rem;
+    }
+
+    .table td {
+        padding: .1rem .3rem;
+        font-size: .8rem;
+    }
+}
