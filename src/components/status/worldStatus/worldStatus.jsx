@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import classes from "./worldStatus.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
-import countryCoordinates from "../../../data/countries";
+import countryCoordinates from "../../../data/countries.json";
 import GoogleMapReact from "google-map-react";
 import CountryMarker from "../countryMarker/countryMarker";
 import RotatedTitle from "../../../assets/img/rotatedTitle.png";
