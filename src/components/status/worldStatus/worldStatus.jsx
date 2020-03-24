@@ -157,143 +157,142 @@ class Status extends PureComponent {
             ) : null}
           </GoogleMapReact>
         </div>
-        <div className={classes.table__container}>
-          <p className={classes.table__info}>
-            {" "}
-            You can click on the headers to see data ordered for each parameter.
-          </p>
-          <div className={classes.table__inner__container}>
-            <div className={classes.table__header__container}>
-              <img
-                className={classes.table__header}
-                src={RotatedTitle}
-                alt="table title"
-              />
-            </div>
-            <table className={classes.table}>
-              <thead>
-                <tr>
-                  <th>Country</th>
-                  <th
-                    onClick={() =>
-                      this.setState({
-                        sortBy: "cases"
-                      })
-                    }
-                    className={
-                      this.state.sortBy === "cases" ? classes.active_case : null
-                    }
-                  >
-                    Cases <FontAwesomeIcon icon={faSort} />
-                  </th>
-                  <th
-                    onClick={() => this.setState({ sortBy: "todayCases" })}
-                    className={
-                      this.state.sortBy === "todayCases"
-                        ? classes.active_case
-                        : null
-                    }
-                  >
-                    Today's Cases <FontAwesomeIcon icon={faSort} />
-                  </th>
-                  <th
-                    onClick={() => this.setState({ sortBy: "deaths" })}
-                    className={
-                      this.state.sortBy === "deaths"
-                        ? classes.active_death
-                        : null
-                    }
-                  >
-                    Deaths <FontAwesomeIcon icon={faSort} />
-                  </th>
-                  <th
-                    onClick={() => this.setState({ sortBy: "todayDeaths" })}
-                    className={
-                      this.state.sortBy === "todayDeaths"
-                        ? classes.active_death
-                        : null
-                    }
-                  >
-                    Today's Deaths <FontAwesomeIcon icon={faSort} />
-                  </th>
-                  {this.state.isSmallScreen ? null : (
-                    <Fragment>
-                      <th
-                        onClick={() => this.setState({ sortBy: "recovered" })}
-                        className={
-                          this.state.sortBy === "recovered"
-                            ? classes.active_recovered
-                            : null
-                        }
-                      >
-                        Recovered <FontAwesomeIcon icon={faSort} />
-                      </th>
-                      <th
-                        onClick={() => this.setState({ sortBy: "active" })}
-                        className={
-                          this.state.sortBy === "active"
-                            ? classes.active_active
-                            : null
-                        }
-                      >
-                        Active <FontAwesomeIcon icon={faSort} />
-                      </th>
-                      <th
-                        onClick={() => this.setState({ sortBy: "critical" })}
-                        className={
-                          this.state.sortBy === "critical"
-                            ? classes.active_critical
-                            : null
-                        }
-                      >
-                        Critical <FontAwesomeIcon icon={faSort} />
-                      </th>{" "}
-                    </Fragment>
-                  )}
-                  {this.state.isXSmallScreen ? null : (
-                    <Fragment>
-                      <th
-                        onClick={() =>
-                          this.setState({ sortBy: "casesPerOneMillion" })
-                        }
-                        className={
-                          this.state.sortBy === "casesPerOneMillion"
-                            ? classes.active_casesPerMillion
-                            : null
-                        }
-                      >
-                        Cases per 1M <FontAwesomeIcon icon={faSort} />
-                      </th>
-                    </Fragment>
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.top10Cases[this.state.sortBy].map(country => {
-                  return (
-                    <tr key={country.country}>
-                      <td>{country.country}</td>
-                      <td>{country.cases.toLocaleString()}</td>
-                      <td>{country.todayCases.toLocaleString()}</td>
-                      <td>{country.deaths.toLocaleString()}</td>
-                      <td>{country.todayDeaths.toLocaleString()}</td>
-                      {this.state.isSmallScreen ? null : (
-                        <Fragment>
-                          <td>{country.recovered.toLocaleString()}</td>
-                          <td>{country.active.toLocaleString()}</td>
-                          <td>{country.critical.toLocaleString()}</td>{" "}
-                        </Fragment>
-                      )}
-                      {this.state.isXSmallScreen ? null : (
+        {this.state.isXSmallScreen ? null : (
+          <div className={classes.table__container}>
+            <p className={classes.table__info}>
+              {" "}
+              You can click on the headers to see data ordered for each
+              parameter.
+            </p>
+            <div className={classes.table__inner__container}>
+              <div className={classes.table__header__container}>
+                <img
+                  className={classes.table__header}
+                  src={RotatedTitle}
+                  alt="table title"
+                />
+              </div>
+              <table className={classes.table}>
+                <thead>
+                  <tr>
+                    <th>Country</th>
+                    <th
+                      onClick={() =>
+                        this.setState({
+                          sortBy: "cases"
+                        })
+                      }
+                      className={
+                        this.state.sortBy === "cases"
+                          ? classes.active_case
+                          : null
+                      }
+                    >
+                      Cases <FontAwesomeIcon icon={faSort} />
+                    </th>
+                    <th
+                      onClick={() => this.setState({ sortBy: "todayCases" })}
+                      className={
+                        this.state.sortBy === "todayCases"
+                          ? classes.active_case
+                          : null
+                      }
+                    >
+                      Today's Cases <FontAwesomeIcon icon={faSort} />
+                    </th>
+                    <th
+                      onClick={() => this.setState({ sortBy: "deaths" })}
+                      className={
+                        this.state.sortBy === "deaths"
+                          ? classes.active_death
+                          : null
+                      }
+                    >
+                      Deaths <FontAwesomeIcon icon={faSort} />
+                    </th>
+                    <th
+                      onClick={() => this.setState({ sortBy: "todayDeaths" })}
+                      className={
+                        this.state.sortBy === "todayDeaths"
+                          ? classes.active_death
+                          : null
+                      }
+                    >
+                      Today's Deaths <FontAwesomeIcon icon={faSort} />
+                    </th>
+                    {this.state.isSmallScreen ? null : (
+                      <Fragment>
+                        <th
+                          onClick={() => this.setState({ sortBy: "recovered" })}
+                          className={
+                            this.state.sortBy === "recovered"
+                              ? classes.active_recovered
+                              : null
+                          }
+                        >
+                          Recovered <FontAwesomeIcon icon={faSort} />
+                        </th>
+                        <th
+                          onClick={() => this.setState({ sortBy: "active" })}
+                          className={
+                            this.state.sortBy === "active"
+                              ? classes.active_active
+                              : null
+                          }
+                        >
+                          Active <FontAwesomeIcon icon={faSort} />
+                        </th>
+                        <th
+                          onClick={() => this.setState({ sortBy: "critical" })}
+                          className={
+                            this.state.sortBy === "critical"
+                              ? classes.active_critical
+                              : null
+                          }
+                        >
+                          Critical <FontAwesomeIcon icon={faSort} />
+                        </th>{" "}
+                      </Fragment>
+                    )}
+                    <th
+                      onClick={() =>
+                        this.setState({ sortBy: "casesPerOneMillion" })
+                      }
+                      className={
+                        this.state.sortBy === "casesPerOneMillion"
+                          ? classes.active_casesPerMillion
+                          : null
+                      }
+                    >
+                      Cases per 1M <FontAwesomeIcon icon={faSort} />
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.top10Cases[this.state.sortBy].map(country => {
+                    return (
+                      <tr key={country.country}>
+                        <td>{country.country}</td>
+                        <td>{country.cases.toLocaleString()}</td>
+                        <td>{country.todayCases.toLocaleString()}</td>
+                        <td>{country.deaths.toLocaleString()}</td>
+                        <td>{country.todayDeaths.toLocaleString()}</td>
+                        {this.state.isSmallScreen ? null : (
+                          <Fragment>
+                            <td>{country.recovered.toLocaleString()}</td>
+                            <td>{country.active.toLocaleString()}</td>
+                            <td>{country.critical.toLocaleString()}</td>{" "}
+                          </Fragment>
+                        )}
                         <td>{country.casesPerOneMillion.toLocaleString()}</td>
-                      )}
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }

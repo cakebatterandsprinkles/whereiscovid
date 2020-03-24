@@ -142,113 +142,110 @@ class usStatus extends PureComponent {
             ) : null}
           </GoogleMapReact>
         </div>
-        <div className={classes.table__container}>
-          <p className={classes.table__info}>
-            {" "}
-            You can click on the headers to see data ordered for each parameter.
-          </p>
-          <div className={classes.table__inner__container}>
-            <div className={classes.table__header__container}>
-              <img
-                className={classes.table__header}
-                src={RotatedTitle}
-                alt="table title"
-              />
+        {this.state.isSmallScreen ? null : (
+          <div className={classes.table__container}>
+            <p className={classes.table__info}>
+              {" "}
+              You can click on the headers to see data ordered for each
+              parameter.
+            </p>
+            <div className={classes.table__inner__container}>
+              <div className={classes.table__header__container}>
+                <img
+                  className={classes.table__header}
+                  src={RotatedTitle}
+                  alt="table title"
+                />
+              </div>
+              <table className={classes.table}>
+                <thead>
+                  <tr>
+                    <th>State</th>
+                    <th
+                      onClick={() =>
+                        this.setState({
+                          sortBy: "cases"
+                        })
+                      }
+                      className={
+                        this.state.sortBy === "cases"
+                          ? classes.active_case
+                          : null
+                      }
+                    >
+                      Cases <FontAwesomeIcon icon={faSort} />
+                    </th>
+                    <th
+                      onClick={() => this.setState({ sortBy: "todayCases" })}
+                      className={
+                        this.state.sortBy === "todayCases"
+                          ? classes.active_case
+                          : null
+                      }
+                    >
+                      Today's Cases <FontAwesomeIcon icon={faSort} />
+                    </th>
+                    <th
+                      onClick={() => this.setState({ sortBy: "deaths" })}
+                      className={
+                        this.state.sortBy === "deaths"
+                          ? classes.active_death
+                          : null
+                      }
+                    >
+                      Deaths <FontAwesomeIcon icon={faSort} />
+                    </th>
+                    <th
+                      onClick={() => this.setState({ sortBy: "todayDeaths" })}
+                      className={
+                        this.state.sortBy === "todayDeaths"
+                          ? classes.active_death
+                          : null
+                      }
+                    >
+                      Today's Deaths <FontAwesomeIcon icon={faSort} />
+                    </th>
+                    <th
+                      onClick={() => this.setState({ sortBy: "recovered" })}
+                      className={
+                        this.state.sortBy === "recovered"
+                          ? classes.active_recovered
+                          : null
+                      }
+                    >
+                      Recovered <FontAwesomeIcon icon={faSort} />
+                    </th>
+                    <th
+                      onClick={() => this.setState({ sortBy: "active" })}
+                      className={
+                        this.state.sortBy === "active"
+                          ? classes.active_active
+                          : null
+                      }
+                    >
+                      Active <FontAwesomeIcon icon={faSort} />
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.top10Cases[this.state.sortBy].map(usState => {
+                    return (
+                      <tr key={usState.state}>
+                        <td>{usState.state}</td>
+                        <td>{usState.cases.toLocaleString()}</td>
+                        <td>{usState.todayCases.toLocaleString()}</td>
+                        <td>{usState.deaths.toLocaleString()}</td>
+                        <td>{usState.todayDeaths.toLocaleString()}</td>
+                        <td>{usState.recovered.toLocaleString()}</td>
+                        <td>{usState.active.toLocaleString()}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
-            <table className={classes.table}>
-              <thead>
-                <tr>
-                  <th>State</th>
-                  <th
-                    onClick={() =>
-                      this.setState({
-                        sortBy: "cases"
-                      })
-                    }
-                    className={
-                      this.state.sortBy === "cases" ? classes.active_case : null
-                    }
-                  >
-                    Cases <FontAwesomeIcon icon={faSort} />
-                  </th>
-                  <th
-                    onClick={() => this.setState({ sortBy: "todayCases" })}
-                    className={
-                      this.state.sortBy === "todayCases"
-                        ? classes.active_case
-                        : null
-                    }
-                  >
-                    Today's Cases <FontAwesomeIcon icon={faSort} />
-                  </th>
-                  <th
-                    onClick={() => this.setState({ sortBy: "deaths" })}
-                    className={
-                      this.state.sortBy === "deaths"
-                        ? classes.active_death
-                        : null
-                    }
-                  >
-                    Deaths <FontAwesomeIcon icon={faSort} />
-                  </th>
-                  <th
-                    onClick={() => this.setState({ sortBy: "todayDeaths" })}
-                    className={
-                      this.state.sortBy === "todayDeaths"
-                        ? classes.active_death
-                        : null
-                    }
-                  >
-                    Today's Deaths <FontAwesomeIcon icon={faSort} />
-                  </th>
-                  {this.state.isSmallScreen ? null : (
-                    <Fragment>
-                      <th
-                        onClick={() => this.setState({ sortBy: "recovered" })}
-                        className={
-                          this.state.sortBy === "recovered"
-                            ? classes.active_recovered
-                            : null
-                        }
-                      >
-                        Recovered <FontAwesomeIcon icon={faSort} />
-                      </th>
-                      <th
-                        onClick={() => this.setState({ sortBy: "active" })}
-                        className={
-                          this.state.sortBy === "active"
-                            ? classes.active_active
-                            : null
-                        }
-                      >
-                        Active <FontAwesomeIcon icon={faSort} />
-                      </th>
-                    </Fragment>
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.top10Cases[this.state.sortBy].map(usState => {
-                  return (
-                    <tr key={usState.state}>
-                      <td>{usState.state}</td>
-                      <td>{usState.cases.toLocaleString()}</td>
-                      <td>{usState.todayCases.toLocaleString()}</td>
-                      <td>{usState.deaths.toLocaleString()}</td>
-                      <td>{usState.todayDeaths.toLocaleString()}</td>
-                      {this.state.isSmallScreen ? null : (
-                        <Fragment>
-                          <td>{usState.recovered.toLocaleString()}</td>
-                          <td>{usState.active.toLocaleString()}</td>
-                        </Fragment>
-                      )}
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
           </div>
-        </div>
+        )}
       </div>
     );
   }
