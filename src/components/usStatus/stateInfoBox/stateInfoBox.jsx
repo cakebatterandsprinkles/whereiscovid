@@ -31,12 +31,6 @@ function StateInfoBox(props) {
           {props.stateData.todayDeaths.toLocaleString()}
         </li>
         <li>
-          <span className={classes.info__container__title}>
-            Recovered: &nbsp;
-          </span>
-          {props.stateData.recovered.toLocaleString()}
-        </li>
-        <li>
           <span className={classes.info__container__title}>Active: &nbsp;</span>
           {props.stateData.active.toLocaleString()}
         </li>

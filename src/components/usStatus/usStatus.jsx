@@ -43,9 +43,6 @@ class usStatus extends PureComponent {
     const sortedTodayDeaths = [...this.state.mainData]
       .sort((a, b) => b.todayDeaths - a.todayDeaths)
       .slice(0, 20);
-    const sortedRecovered = [...this.state.mainData]
-      .sort((a, b) => b.recovered - a.recovered)
-      .slice(0, 20);
     const sortedActive = [...this.state.mainData]
       .sort((a, b) => b.active - a.active)
       .slice(0, 20);
@@ -55,7 +52,6 @@ class usStatus extends PureComponent {
         deaths: sortedDeaths,
         todayCases: sortedTodayCases,
         todayDeaths: sortedTodayDeaths,
-        recovered: sortedRecovered,
         active: sortedActive
       }
     });
@@ -88,7 +84,6 @@ class usStatus extends PureComponent {
         todayCases: [],
         deaths: [],
         todayDeaths: [],
-        recovered: [],
         active: []
       },
       sortBy: "cases",
@@ -206,16 +201,6 @@ class usStatus extends PureComponent {
                       Today's Deaths <FontAwesomeIcon icon={faSort} />
                     </th>
                     <th
-                      onClick={() => this.setState({ sortBy: "recovered" })}
-                      className={
-                        this.state.sortBy === "recovered"
-                          ? classes.active_recovered
-                          : null
-                      }
-                    >
-                      Recovered <FontAwesomeIcon icon={faSort} />
-                    </th>
-                    <th
                       onClick={() => this.setState({ sortBy: "active" })}
                       className={
                         this.state.sortBy === "active"
@@ -236,7 +221,6 @@ class usStatus extends PureComponent {
                         <td>{usState.todayCases.toLocaleString()}</td>
                         <td>{usState.deaths.toLocaleString()}</td>
                         <td>{usState.todayDeaths.toLocaleString()}</td>
-                        <td>{usState.recovered.toLocaleString()}</td>
                         <td>{usState.active.toLocaleString()}</td>
                       </tr>
                     );

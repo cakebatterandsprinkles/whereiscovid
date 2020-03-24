@@ -15,8 +15,6 @@ class StateMarker extends PureComponent {
       return classes.red;
     } else if (value === "deaths" || value === "todayDeaths") {
       return classes.gray;
-    } else if (value === "recovered") {
-      return classes.green;
     } else if (value === "active") {
       return classes.yellow;
     }
