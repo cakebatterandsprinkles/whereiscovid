@@ -17,12 +17,22 @@ class usStatus extends PureComponent {
           mainData: data.map(usState => {
             return {
               ...usState,
-              latitude: stateCoordinates.filter(
-                coord => coord.name === usState.state
-              )[0].lat,
-              longitude: stateCoordinates.filter(
-                coord => coord.name === usState.state
-              )[0].lng
+              latitude:
+                stateCoordinates.filter(
+                  coord => coord.name === usState.state
+                )[0] !== undefined
+                  ? stateCoordinates.filter(
+                      coord => coord.name === usState.state
+                    )[0].lat
+                  : 37.0902,
+              longitude:
+                stateCoordinates.filter(
+                  coord => coord.name === usState.state
+                )[0] !== undefined
+                  ? stateCoordinates.filter(
+                      coord => coord.name === usState.state
+                    )[0].lng
+                  : -95.7129
             };
           })
         })

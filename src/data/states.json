@@ -1,5 +1,4 @@
-[
-    {
+[{
         "name": "New York",
         "lat": 42.1657,
         "lng": -74.9481
@@ -155,7 +154,7 @@
         "lng": -84.6701
     },
     {
-        "name": "District of Columbia",
+        "name": "District Of Columbia",
         "lat": 38.8974,
         "lng": -77.0268
     },
@@ -291,6 +290,11 @@
     },
     {
         "name": "Others",
+        "lat": 37.0902,
+        "lng": -95.7129
+    },
+    {
+        "name": "Wuhan Repatriated",
         "lat": 37.0902,
         "lng": -95.7129
     }

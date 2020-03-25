@@ -17,12 +17,22 @@ class Status extends PureComponent {
           mainData: data.map(country => {
             return {
               ...country,
-              latitude: countryCoordinates.filter(
-                coord => coord.name === country.country
-              )[0].lat,
-              longitude: countryCoordinates.filter(
-                coord => coord.name === country.country
-              )[0].lng
+              latitude:
+                countryCoordinates.filter(
+                  coord => coord.name === country.country
+                )[0] !== undefined
+                  ? countryCoordinates.filter(
+                      coord => coord.name === country.country
+                    )[0].lat
+                  : 0,
+              longitude:
+                countryCoordinates.filter(
+                  coord => coord.name === country.country
+                )[0] !== undefined
+                  ? countryCoordinates.filter(
+                      coord => coord.name === country.country
+                    )[0].lng
+                  : 0
             };
           })
         })
