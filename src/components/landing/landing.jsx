@@ -150,27 +150,33 @@ class Landing extends PureComponent {
           <p>
             {" "}
             There has been{" "}
-            <span className={classes.case}> {this.state.locationCase} </span>
+            <span className={classes.case}>
+              {" "}
+              {this.state.locationCase.toLocaleString()}{" "}
+            </span>
             cases, of which{" "}
             <span className={classes.case}>
               {" "}
-              {this.state.locationTodayCase}{" "}
+              {this.state.locationTodayCase.toLocaleString()}{" "}
             </span>{" "}
             was reported today.
           </p>
           <p>
             {" "}
             Of these{" "}
-            <span className={classes.case}> {this.state.locationCase} </span>
+            <span className={classes.case}>
+              {" "}
+              {this.state.locationCase.toLocaleString()}{" "}
+            </span>
             cases, there were{" "}
             <span className={classes.death}>
               {" "}
-              {this.state.locationDeath}{" "}
+              {this.state.locationDeath.toLocaleString()}{" "}
             </span>{" "}
             deaths, of which{" "}
             <span className={classes.death}>
               {" "}
-              {this.state.locationTodayDeath}{" "}
+              {this.state.locationTodayDeath.toLocaleString()}{" "}
             </span>{" "}
             were reported today.
           </p>
