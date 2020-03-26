@@ -56,3 +56,18 @@ span.case {
   font-size: 1.2rem;
   font-weight: bold;
 }
+
+@media (max-width: 950px) {
+  .innerContainer>p {
+    font-size: 1rem;
+    margin-bottom: .8rem
+  }
+
+  .innerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 4rem 3rem;
+  }
+}
