@@ -51,7 +51,7 @@ class Navbar extends PureComponent {
           <NavLink
             className={`${classes.navbar__item} ${this.state.visibilityClass}`}
             exact
-            to="/"
+            to="/world-status"
             activeClassName="navbar__item--active"
             activeStyle={{
               backgroundColor: "var(--gray)",
