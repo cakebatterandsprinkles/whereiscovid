@@ -112,43 +112,69 @@ class Landing extends PureComponent {
   render() {
     return (
       <div className={classes.mainContainer}>
-        <p>
-          It appears that you're connecting from{" "}
-          <span>
-            <select id="countries">
-              <option value={`${this.state.userLocation}`}>
-                {this.state.userLocation}
-              </option>
-              {this.state.mainWorldData
-                .filter(data => {
-                  return data.country !== this.state.userLocation;
-                })
-                .map(data => {
-                  return <option>{data.country}</option>;
-                })}
-              {this.state.mainStateData
-                .filter(data => {
-                  return data.state !== this.state.userLocation;
-                })
-                .map(data => {
-                  return <option>{data.state}</option>;
-                })}
-            </select>
-          </span>
-          . The latest data for <span> {this.state.userLocation} </span> is as
-          follows:{" "}
-        </p>
-        <p>
-          {" "}
-          There has been <span> {this.state.locationCase} </span>cases, of which{" "}
-          <span> {this.state.locationTodayCase} </span> was reported today.
-        </p>
-        <p>
-          {" "}
-          Of these <span> {this.state.locationCase} </span>cases, there were{" "}
-          <span> {this.state.locationDeath} </span> deaths, of which{" "}
-          <span> {this.state.locationTodayDeath} </span> were reported today.
-        </p>
+        <div className={classes.innerContainer}>
+          <p>
+            It appears that you're connecting from{" "}
+            <span className={classes.countryName}>
+              {this.state.userLocation}
+              {/* <select class={classes.countries}>
+                <option value={`${this.state.userLocation}`}>
+                  {this.state.userLocation}
+                </option>
+                {this.state.mainWorldData
+                  .filter(data => {
+                    return data.country !== this.state.userLocation;
+                  })
+                  .map(data => {
+                    return <option>{data.country}</option>;
+                  })}
+                {this.state.mainStateData
+                  .filter(data => {
+                    return data.state !== this.state.userLocation;
+                  })
+                  .map(data => {
+                    return <option>{data.state}</option>;
+                  })}
+              </select> */}
+            </span>
+            .
+            <p className={classes.latestData}>
+              The latest data for{" "}
+              <span className={classes.countryName}>
+                {" "}
+                {this.state.userLocation}{" "}
+              </span>{" "}
+              is as follows:{" "}
+            </p>
+          </p>
+          <p>
+            {" "}
+            There has been{" "}
+            <span className={classes.case}> {this.state.locationCase} </span>
+            cases, of which{" "}
+            <span className={classes.case}>
+              {" "}
+              {this.state.locationTodayCase}{" "}
+            </span>{" "}
+            was reported today.
+          </p>
+          <p>
+            {" "}
+            Of these{" "}
+            <span className={classes.case}> {this.state.locationCase} </span>
+            cases, there were{" "}
+            <span className={classes.death}>
+              {" "}
+              {this.state.locationDeath}{" "}
+            </span>{" "}
+            deaths, of which{" "}
+            <span className={classes.death}>
+              {" "}
+              {this.state.locationTodayDeath}{" "}
+            </span>{" "}
+            were reported today.
+          </p>
+        </div>
       </div>
     );
   }

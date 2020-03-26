@@ -17,6 +17,7 @@ class Status extends PureComponent {
           mainData: data.map(country => {
             return {
               ...country,
+              casesPerOneMillion: country.casesPerOneMillion ?? 0,
               latitude:
                 countryCoordinates.filter(
                   coord => coord.name === country.country

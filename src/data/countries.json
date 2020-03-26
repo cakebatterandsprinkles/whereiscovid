@@ -1,5 +1,4 @@
-[
-    {
+[{
         "name": "Aruba",
         "lat": 12.5,
         "lng": -69.96666666
@@ -530,7 +529,7 @@
         "lng": -8
     },
     {
-        "name": "Iran",
+        "name": "Iran, Islamic Republic of",
         "lat": 32,
         "lng": 53
     },

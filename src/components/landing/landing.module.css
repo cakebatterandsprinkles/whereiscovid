@@ -1,0 +1,58 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url(../../assets/img/world.jpg) no-repeat center center/cover;
+}
+
+.innerContainer {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 4rem;
+  border: 1px solid var(--gray);
+  border-radius: 10px;
+  box-shadow: 5px 4px 8px 4px #0000004d;
+  background: rgba(255, 255, 255, 0.795);
+}
+
+.innerContainer>p {
+  font-size: 1.2rem;
+  margin-bottom: .8rem
+}
+
+.countryName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--blue);
+}
+
+/* .countries {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #444;
+  max-width: 12rem;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
+  border-radius: .5em;
+} */
+
+.latestData {
+  margin-top: .8rem
+}
+
+span.death {
+  color: var(--red);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+span.case {
+  color: var(--green);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
