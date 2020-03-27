@@ -83,22 +83,30 @@ class Status extends PureComponent {
   handleWindowResize() {
     window.addEventListener("resize", e => {
       if (e.srcElement.outerWidth < 900 && e.srcElement.outerWidth >= 600) {
-        this.setState({ isSmallScreen: true });
+        this.setState({ isSmallScreen: true, mapHeight: 60 });
       } else if (e.srcElement.outerWidth >= 900) {
-        this.setState({ isSmallScreen: false, isXSmallScreen: false });
+        this.setState({
+          isSmallScreen: false,
+          isXSmallScreen: false,
+          mapHeight: 60
+        });
       } else if (e.srcElement.outerWidth < 600) {
-        this.setState({ isXSmallScreen: true });
+        this.setState({ isXSmallScreen: true, mapHeight: 100 });
       }
     });
   }
 
   handleFirstTable() {
     if (window.outerWidth >= 900) {
-      this.setState({ isSmallScreen: false, isXSmallScreen: false });
+      this.setState({
+        isSmallScreen: false,
+        isXSmallScreen: false,
+        mapHeight: 60
+      });
     } else if (window.outerWidth >= 600 && window.outerWidth < 900) {
-      this.setState({ isSmallScreen: true });
+      this.setState({ isSmallScreen: true, mapHeight: 60 });
     } else if (window.outerWidth < 600) {
-      this.setState({ isXSmallScreen: true });
+      this.setState({ isXSmallScreen: true, mapHeight: 100 });
     }
   }
 
@@ -119,7 +127,8 @@ class Status extends PureComponent {
       sortBy: "cases",
       selectedCountry: null,
       isSmallScreen: false,
-      isXSmallScreen: false
+      isXSmallScreen: false,
+      mapHeight: 60
     };
   }
   componentDidMount() {
@@ -132,7 +141,7 @@ class Status extends PureComponent {
     return (
       <div>
         <div
-          style={{ height: "60vh", width: "100%" }}
+          style={{ height: `${this.state.mapHeight}vh`, width: "100%" }}
           onClick={() => this.setState({ selectedCountry: null })}
         >
           <GoogleMapReact

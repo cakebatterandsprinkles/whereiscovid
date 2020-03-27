@@ -70,18 +70,18 @@ class usStatus extends PureComponent {
   handleWindowResize() {
     window.addEventListener("resize", e => {
       if (e.srcElement.outerWidth >= 750) {
-        this.setState({ isSmallScreen: false });
+        this.setState({ isSmallScreen: false, mapHeight: 60 });
       } else if (e.srcElement.outerWidth < 750) {
-        this.setState({ isSmallScreen: true });
+        this.setState({ isSmallScreen: true, mapHeight: 100 });
       }
     });
   }
 
   handleFirstTable() {
     if (window.outerWidth >= 750) {
-      this.setState({ isSmallScreen: false });
+      this.setState({ isSmallScreen: false, mapHeight: 60 });
     } else if (window.outerWidth < 750) {
-      this.setState({ isSmallScreen: true });
+      this.setState({ isSmallScreen: true, mapHeight: 100 });
     }
   }
 
@@ -98,9 +98,11 @@ class usStatus extends PureComponent {
       },
       sortBy: "cases",
       selectedState: null,
-      isSmallScreen: false
+      isSmallScreen: false,
+      mapHeight: 60
     };
   }
+
   componentDidMount() {
     this.retrieveData();
     this.handleFirstTable();
@@ -111,7 +113,7 @@ class usStatus extends PureComponent {
     return (
       <div>
         <div
-          style={{ height: "60vh", width: "100%" }}
+          style={{ height: `${this.state.mapHeight}vh`, width: "100%" }}
           onClick={() => this.setState({ selectedState: null })}
         >
           <GoogleMapReact
