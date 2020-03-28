@@ -5,7 +5,7 @@ import stateCoordinates from "../../data/states.json";
 
 class Landing extends PureComponent {
   retrieveWorldData() {
-    fetch("https://corona.lmao.ninja/countries")
+    fetch("https://api.whereiscovid.info/countries.json")
       .then(blob => blob.json())
       .then(data =>
         this.setState({
@@ -36,7 +36,7 @@ class Landing extends PureComponent {
   }
 
   retrieveStateData() {
-    fetch("https://corona.lmao.ninja/states")
+    fetch("https://api.whereiscovid.info/states.json")
       .then(blob => blob.json())
       .then(data =>
         this.setState({
@@ -117,35 +117,16 @@ class Landing extends PureComponent {
             It appears that you're connecting from{" "}
             <span className={classes.countryName}>
               {this.state.userLocation}
-              {/* <select class={classes.countries}>
-                <option value={`${this.state.userLocation}`}>
-                  {this.state.userLocation}
-                </option>
-                {this.state.mainWorldData
-                  .filter(data => {
-                    return data.country !== this.state.userLocation;
-                  })
-                  .map(data => {
-                    return <option>{data.country}</option>;
-                  })}
-                {this.state.mainStateData
-                  .filter(data => {
-                    return data.state !== this.state.userLocation;
-                  })
-                  .map(data => {
-                    return <option>{data.state}</option>;
-                  })}
-              </select> */}
             </span>
-            .
-            <p className={classes.latestData}>
-              The latest data for{" "}
-              <span className={classes.countryName}>
-                {" "}
-                {this.state.userLocation}{" "}
-              </span>{" "}
-              is as follows:{" "}
-            </p>
+            .{" "}
+          </p>
+          <p>
+            The latest data for{" "}
+            <span className={classes.countryName}>
+              {" "}
+              {this.state.userLocation}{" "}
+            </span>{" "}
+            is as follows:{" "}
           </p>
           <p>
             {" "}

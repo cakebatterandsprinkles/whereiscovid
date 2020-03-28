@@ -30,22 +30,6 @@
   font-weight: bold;
 }
 
-/* .countries {
-  display: inline-block;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #444;
-  max-width: 12rem;
-  border: 1px solid #aaa;
-  box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
-  border-radius: .5em;
-} */
-
-.latestData {
-  margin-top: .8rem
-}
-
-
 span.death {
   color: var(--red);
   font-size: 1.5rem;

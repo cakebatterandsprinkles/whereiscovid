@@ -10,7 +10,7 @@ import StateInfoBox from "../usStatus/stateInfoBox/stateInfoBox";
 
 class usStatus extends PureComponent {
   retrieveData() {
-    fetch("https://corona.lmao.ninja/states")
+    fetch("https://api.whereiscovid.info/states.json")
       .then(blob => blob.json())
       .then(data =>
         this.setState({
