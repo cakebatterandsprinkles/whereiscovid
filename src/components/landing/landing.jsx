@@ -5,7 +5,7 @@ import stateCoordinates from "../../data/states.json";
 
 class Landing extends PureComponent {
   retrieveWorldData() {
-    fetch("https://api.whereiscovid.info/countries.json")
+    return fetch("https://api.whereiscovid.info/countries.json")
       .then(blob => blob.json())
       .then(data =>
         this.setState({
@@ -31,12 +31,11 @@ class Landing extends PureComponent {
             };
           })
         })
-      )
-      .then(() => this.retrieveStateData());
+      );
   }
 
   retrieveStateData() {
-    fetch("https://api.whereiscovid.info/states.json")
+    return fetch("https://api.whereiscovid.info/states.json")
       .then(blob => blob.json())
       .then(data =>
         this.setState({
@@ -62,35 +61,11 @@ class Landing extends PureComponent {
             };
           })
         })
-      )
-      .then(() => this.getUserLocation());
+      );
   }
 
   getUserLocation() {
-    fetch("https://geoip.edelkrone.com/json/")
-      .then(blob => blob.json())
-      .then(data => ({
-        country: this.state.mainWorldData.filter(
-          countryData => countryData.countryInfo.iso2 === data.country_code
-        )[0],
-        state: this.state.mainStateData.filter(
-          stateData => stateData.state === data.region_name
-        )[0]
-      }))
-      .then(data =>
-        this.setState({
-          userLocation: data.state ? data.state.state : data.country.country,
-          locationDeath: data.state ? data.state.deaths : data.country.deaths,
-          locationTodayDeath: data.state
-            ? data.state.todayDeaths
-            : data.country.todayDeaths,
-          locationCase: data.state ? data.state.cases : data.country.cases,
-          locationTodayCase: data.state
-            ? data.state.todayCases
-            : data.country.todayCases
-        })
-      )
-      .then(() => console.log("Hello from getUserLocation"));
+    return fetch("https://geoip.edelkrone.com/json/").then(blob => blob.json());
   }
 
   constructor() {
@@ -106,7 +81,32 @@ class Landing extends PureComponent {
     };
   }
   componentDidMount() {
-    this.retrieveWorldData();
+    Promise.all([
+      this.retrieveStateData(),
+      this.retrieveWorldData(),
+      this.getUserLocation()
+    ])
+      .then(data => ({
+        country: this.state.mainWorldData.filter(
+          countryData => countryData.countryInfo.iso2 === data[2].country_code
+        )[0],
+        state: this.state.mainStateData.filter(
+          stateData => stateData.state === data[2].region_name
+        )[0]
+      }))
+      .then(data =>
+        this.setState({
+          userLocation: data.state ? data.state.state : data.country.country,
+          locationDeath: data.state ? data.state.deaths : data.country.deaths,
+          locationTodayDeath: data.state
+            ? data.state.todayDeaths
+            : data.country.todayDeaths,
+          locationCase: data.state ? data.state.cases : data.country.cases,
+          locationTodayCase: data.state
+            ? data.state.todayCases
+            : data.country.todayCases
+        })
+      );
   }
 
   render() {
