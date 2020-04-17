@@ -11,31 +11,31 @@ import InfoBox from "../infoBox/infoBox";
 class Status extends PureComponent {
   retrieveData() {
     fetch("https://api.whereiscovid.info/countries.json")
-      .then(blob => blob.json())
-      .then(data =>
+      .then((blob) => blob.json())
+      .then((data) =>
         this.setState({
-          mainData: data.map(country => {
+          mainData: data.map((country) => {
             return {
               ...country,
               casesPerOneMillion: country.casesPerOneMillion ?? 0,
               latitude:
                 countryCoordinates.filter(
-                  coord => coord.name === country.country
+                  (coord) => coord.name === country.country
                 )[0] !== undefined
                   ? countryCoordinates.filter(
-                      coord => coord.name === country.country
+                      (coord) => coord.name === country.country
                     )[0].lat
-                  : 0,
+                  : country.lat,
               longitude:
                 countryCoordinates.filter(
-                  coord => coord.name === country.country
+                  (coord) => coord.name === country.country
                 )[0] !== undefined
                   ? countryCoordinates.filter(
-                      coord => coord.name === country.country
+                      (coord) => coord.name === country.country
                     )[0].lng
-                  : 0
+                  : country.long,
             };
-          })
+          }),
         })
       )
       .then(() => this.sortData());
@@ -75,20 +75,20 @@ class Status extends PureComponent {
         recovered: sortedRecovered,
         active: sortedActive,
         critical: sortedCritical,
-        casesPerOneMillion: sortedCasesPerOneMillion
-      }
+        casesPerOneMillion: sortedCasesPerOneMillion,
+      },
     });
   }
 
   handleWindowResize() {
-    window.addEventListener("resize", e => {
+    window.addEventListener("resize", (e) => {
       if (e.srcElement.outerWidth < 900 && e.srcElement.outerWidth >= 600) {
         this.setState({ isSmallScreen: true, mapHeight: 60 });
       } else if (e.srcElement.outerWidth >= 900) {
         this.setState({
           isSmallScreen: false,
           isXSmallScreen: false,
-          mapHeight: 60
+          mapHeight: 60,
         });
       } else if (e.srcElement.outerWidth < 600) {
         this.setState({ isXSmallScreen: true, mapHeight: 100 });
@@ -101,7 +101,7 @@ class Status extends PureComponent {
       this.setState({
         isSmallScreen: false,
         isXSmallScreen: false,
-        mapHeight: 60
+        mapHeight: 60,
       });
     } else if (window.outerWidth >= 600 && window.outerWidth < 900) {
       this.setState({ isSmallScreen: true, mapHeight: 60 });
@@ -122,13 +122,13 @@ class Status extends PureComponent {
         recovered: [],
         active: [],
         critical: [],
-        casesPerOneMillion: []
+        casesPerOneMillion: [],
       },
       sortBy: "cases",
       selectedCountry: null,
       isSmallScreen: false,
       isXSmallScreen: false,
-      mapHeight: 60
+      mapHeight: 60,
     };
   }
   componentDidMount() {
@@ -149,10 +149,10 @@ class Status extends PureComponent {
             defaultZoom={1}
             bootstrapURLKeys={{
               key: "AIzaSyA3jSaFgByAz1ZNwNWJXj_HmoEMntLPEj8",
-              language: "en"
+              language: "en",
             }}
           >
-            {this.state.mainData.map(country => {
+            {this.state.mainData.map((country) => {
               return (
                 <CountryMarker
                   key={country.country}
@@ -160,7 +160,7 @@ class Status extends PureComponent {
                   lng={country.longitude}
                   data={country}
                   sortBy={this.state.sortBy}
-                  onClick={event => {
+                  onClick={(event) => {
                     this.setState({ selectedCountry: country });
                     event.stopPropagation();
                   }}
@@ -199,7 +199,7 @@ class Status extends PureComponent {
                     <th
                       onClick={() =>
                         this.setState({
-                          sortBy: "cases"
+                          sortBy: "cases",
                         })
                       }
                       className={
@@ -289,7 +289,7 @@ class Status extends PureComponent {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.top10Cases[this.state.sortBy].map(country => {
+                  {this.state.top10Cases[this.state.sortBy].map((country) => {
                     return (
                       <tr key={country.country}>
                         <td>{country.country}</td>
