@@ -6,66 +6,68 @@ import stateCoordinates from "../../data/states.json";
 class Landing extends PureComponent {
   retrieveWorldData() {
     return fetch("https://api.whereiscovid.info/countries.json")
-      .then(blob => blob.json())
-      .then(data =>
+      .then((blob) => blob.json())
+      .then((data) =>
         this.setState({
-          mainWorldData: data.map(country => {
+          mainWorldData: data.map((country) => {
             return {
               ...country,
               latitude:
                 countryCoordinates.filter(
-                  coord => coord.name === country.country
+                  (coord) => coord.name === country.country
                 )[0] !== undefined
                   ? countryCoordinates.filter(
-                      coord => coord.name === country.country
+                      (coord) => coord.name === country.country
                     )[0].lat
                   : 0,
               longitude:
                 countryCoordinates.filter(
-                  coord => coord.name === country.country
+                  (coord) => coord.name === country.country
                 )[0] !== undefined
                   ? countryCoordinates.filter(
-                      coord => coord.name === country.country
+                      (coord) => coord.name === country.country
                     )[0].lng
-                  : 0
+                  : 0,
             };
-          })
+          }),
         })
       );
   }
 
   retrieveStateData() {
     return fetch("https://api.whereiscovid.info/states.json")
-      .then(blob => blob.json())
-      .then(data =>
+      .then((blob) => blob.json())
+      .then((data) =>
         this.setState({
-          mainStateData: data.map(usState => {
+          mainStateData: data.map((usState) => {
             return {
               ...usState,
               latitude:
                 stateCoordinates.filter(
-                  coord => coord.name === usState.state
+                  (coord) => coord.name === usState.state
                 )[0] !== undefined
                   ? stateCoordinates.filter(
-                      coord => coord.name === usState.state
+                      (coord) => coord.name === usState.state
                     )[0].lat
                   : 37.0902,
               longitude:
                 stateCoordinates.filter(
-                  coord => coord.name === usState.state
+                  (coord) => coord.name === usState.state
                 )[0] !== undefined
                   ? stateCoordinates.filter(
-                      coord => coord.name === usState.state
+                      (coord) => coord.name === usState.state
                     )[0].lng
-                  : -95.7129
+                  : -95.7129,
             };
-          })
+          }),
         })
       );
   }
 
   getUserLocation() {
-    return fetch("https://geoip.edelkrone.com/json/").then(blob => blob.json());
+    return fetch("https://geoip.edelkrone.com/json/").then((blob) =>
+      blob.json()
+    );
   }
 
   constructor() {
@@ -77,24 +79,24 @@ class Landing extends PureComponent {
       locationDeath: 0,
       locationTodayDeath: 0,
       locationCase: 0,
-      locationTodayCase: 0
+      locationTodayCase: 0,
     };
   }
   componentDidMount() {
     Promise.all([
       this.retrieveStateData(),
       this.retrieveWorldData(),
-      this.getUserLocation()
+      this.getUserLocation(),
     ])
-      .then(data => ({
+      .then((data) => ({
         country: this.state.mainWorldData.filter(
-          countryData => countryData.countryInfo.iso2 === data[2].country_code
+          (countryData) => countryData.countryInfo.iso2 === data[2].country_code
         )[0],
         state: this.state.mainStateData.filter(
-          stateData => stateData.state === data[2].region_name
-        )[0]
+          (stateData) => stateData.state === data[2].region_name
+        )[0],
       }))
-      .then(data =>
+      .then((data) =>
         this.setState({
           userLocation: data.state ? data.state.state : data.country.country,
           locationDeath: data.state ? data.state.deaths : data.country.deaths,
@@ -104,7 +106,7 @@ class Landing extends PureComponent {
           locationCase: data.state ? data.state.cases : data.country.cases,
           locationTodayCase: data.state
             ? data.state.todayCases
-            : data.country.todayCases
+            : data.country.todayCases,
         })
       );
   }

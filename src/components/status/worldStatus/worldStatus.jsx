@@ -25,7 +25,7 @@ class Status extends PureComponent {
                   ? countryCoordinates.filter(
                       (coord) => coord.name === country.country
                     )[0].lat
-                  : country.lat,
+                  : country.countryInfo.lat,
               longitude:
                 countryCoordinates.filter(
                   (coord) => coord.name === country.country
@@ -33,7 +33,7 @@ class Status extends PureComponent {
                   ? countryCoordinates.filter(
                       (coord) => coord.name === country.country
                     )[0].lng
-                  : country.long,
+                  : country.countryInfo.long,
             };
           }),
         })

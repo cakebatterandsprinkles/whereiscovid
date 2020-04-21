@@ -11,30 +11,30 @@ import StateInfoBox from "../usStatus/stateInfoBox/stateInfoBox";
 class usStatus extends PureComponent {
   retrieveData() {
     fetch("https://api.whereiscovid.info/states.json")
-      .then(blob => blob.json())
-      .then(data =>
+      .then((blob) => blob.json())
+      .then((data) =>
         this.setState({
-          mainData: data.map(usState => {
+          mainData: data.map((usState) => {
             return {
               ...usState,
               latitude:
                 stateCoordinates.filter(
-                  coord => coord.name === usState.state
+                  (coord) => coord.name === usState.state
                 )[0] !== undefined
                   ? stateCoordinates.filter(
-                      coord => coord.name === usState.state
+                      (coord) => coord.name === usState.state
                     )[0].lat
                   : 37.0902,
               longitude:
                 stateCoordinates.filter(
-                  coord => coord.name === usState.state
+                  (coord) => coord.name === usState.state
                 )[0] !== undefined
                   ? stateCoordinates.filter(
-                      coord => coord.name === usState.state
+                      (coord) => coord.name === usState.state
                     )[0].lng
-                  : -95.7129
+                  : -95.7129,
             };
-          })
+          }),
         })
       )
       .then(() => this.sortData());
@@ -62,13 +62,13 @@ class usStatus extends PureComponent {
         deaths: sortedDeaths,
         todayCases: sortedTodayCases,
         todayDeaths: sortedTodayDeaths,
-        active: sortedActive
-      }
+        active: sortedActive,
+      },
     });
   }
 
   handleWindowResize() {
-    window.addEventListener("resize", e => {
+    window.addEventListener("resize", (e) => {
       if (e.srcElement.outerWidth >= 750) {
         this.setState({ isSmallScreen: false, mapHeight: 60 });
       } else if (e.srcElement.outerWidth < 750) {
@@ -94,12 +94,12 @@ class usStatus extends PureComponent {
         todayCases: [],
         deaths: [],
         todayDeaths: [],
-        active: []
+        active: [],
       },
       sortBy: "cases",
       selectedState: null,
       isSmallScreen: false,
-      mapHeight: 60
+      mapHeight: 60,
     };
   }
 
@@ -121,24 +121,30 @@ class usStatus extends PureComponent {
             defaultZoom={4}
             bootstrapURLKeys={{
               key: "AIzaSyA3jSaFgByAz1ZNwNWJXj_HmoEMntLPEj8",
-              language: "en"
+              language: "en",
             }}
           >
-            {this.state.mainData.map(usState => {
-              return (
-                <StateMarker
-                  key={usState.state}
-                  lat={usState.latitude}
-                  lng={usState.longitude}
-                  data={usState}
-                  sortBy={this.state.sortBy}
-                  onClick={event => {
-                    this.setState({ selectedState: usState });
-                    event.stopPropagation();
-                  }}
-                />
-              );
-            })}
+            {this.state.mainData
+              .filter((usState) => {
+                return stateCoordinates
+                  .map((state) => state.name)
+                  .includes(usState.state);
+              })
+              .map((usState) => {
+                return (
+                  <StateMarker
+                    key={usState.state}
+                    lat={usState.latitude}
+                    lng={usState.longitude}
+                    data={usState}
+                    sortBy={this.state.sortBy}
+                    onClick={(event) => {
+                      this.setState({ selectedState: usState });
+                      event.stopPropagation();
+                    }}
+                  />
+                );
+              })}
 
             {this.state.selectedState ? (
               <StateInfoBox
@@ -171,7 +177,7 @@ class usStatus extends PureComponent {
                     <th
                       onClick={() =>
                         this.setState({
-                          sortBy: "cases"
+                          sortBy: "cases",
                         })
                       }
                       className={
@@ -225,7 +231,7 @@ class usStatus extends PureComponent {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.top10Cases[this.state.sortBy].map(usState => {
+                  {this.state.top10Cases[this.state.sortBy].map((usState) => {
                     return (
                       <tr key={usState.state}>
                         <td>{usState.state}</td>
