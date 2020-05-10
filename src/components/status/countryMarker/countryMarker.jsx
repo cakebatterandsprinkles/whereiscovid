@@ -5,12 +5,12 @@ class CountryMarker extends PureComponent {
   constructor() {
     super();
     this.state = {
-      activeClass: null
+      activeClass: null,
     };
     this.handleMouseover = this.handleMouseover.bind(this);
     this.handleMouseout = this.handleMouseout.bind(this);
   }
-  chooseColor = value => {
+  chooseColor = (value) => {
     if (value === "cases" || value === "todayCases") {
       return classes.red;
     } else if (value === "deaths" || value === "todayDeaths") {
@@ -26,15 +26,17 @@ class CountryMarker extends PureComponent {
     }
     return classes.red;
   };
-  calculateSize = value => {
+  calculateSize = (value) => {
     if (value < 100) {
       return classes.small;
-    } else if (value < 500) {
+    } else if (value < 1000) {
       return classes.medium;
-    } else if (value < 2000) {
+    } else if (value < 10000) {
       return classes.large;
-    } else if (value >= 2000) {
+    } else if (value < 100000) {
       return classes.x_large;
+    } else if (value >= 1000000) {
+      return classes.xx_large;
     }
   };
 
