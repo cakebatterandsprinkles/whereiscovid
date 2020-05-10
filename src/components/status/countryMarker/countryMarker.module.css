@@ -46,6 +46,13 @@
   margin-top: -30px;
 }
 
+.xxx_large {
+  height: 66px;
+  width: 66px;
+  margin-left: -33px;
+  margin-top: -33px;
+}
+
 .red {
   background-color: var(--red);
   border: 1px solid white;

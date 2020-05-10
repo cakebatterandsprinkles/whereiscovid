@@ -29,8 +29,10 @@ class StateMarker extends PureComponent {
       return classes.large;
     } else if (value < 100000) {
       return classes.x_large;
-    } else if (value >= 1000000) {
+    } else if (value < 1000000) {
       return classes.xx_large;
+    } else if (value >= 1000000) {
+      return classes.xxx_large;
     }
   };
 
