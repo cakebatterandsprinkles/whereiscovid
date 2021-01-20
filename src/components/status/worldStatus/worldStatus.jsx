@@ -54,12 +54,12 @@ class Status extends PureComponent {
     const sortedTodayDeaths = [...this.state.mainData]
       .sort((a, b) => b.todayDeaths - a.todayDeaths)
       .slice(0, 20);
-      const sortedCasesPerOneMillion = [...this.state.mainData]
-        .sort((a, b) => b.casesPerOneMillion - a.casesPerOneMillion)
-        .slice(0, 20);
-        const sortedDeathsPerOneMillion = [...this.state.mainData]
-          .sort((a, b) => b.deathsPerOneMillion - a.deathsPerOneMillion)
-          .slice(0, 20);
+    const sortedCasesPerOneMillion = [...this.state.mainData]
+      .sort((a, b) => b.casesPerOneMillion - a.casesPerOneMillion)
+      .slice(0, 20);
+    const sortedDeathsPerOneMillion = [...this.state.mainData]
+      .sort((a, b) => b.deathsPerOneMillion - a.deathsPerOneMillion)
+      .slice(0, 20);
     this.setState({
       top10Cases: {
         cases: sortedCase,
@@ -128,6 +128,10 @@ class Status extends PureComponent {
   }
 
   render() {
+    const values = this.state.mainData.map((country) => country[this.state.sortBy]);
+    const minValue = Math.min(...values);
+    const maxValue = Math.max(...values);
+    
     return (
       <div>
         <div
@@ -149,6 +153,8 @@ class Status extends PureComponent {
                   key={country.country}
                   lat={country.latitude}
                   lng={country.longitude}
+                  max={maxValue}
+                  min={minValue}
                   onClick={(event) => {
                     this.setState({ selectedCountry: country });
                     event.stopPropagation();
@@ -245,7 +251,7 @@ class Status extends PureComponent {
                     <th
                       className={
                         this.state.sortBy === "deathsPerOneMillion"
-                          ? classes.active_casesPerMillion
+                          ? classes.active_deathsPerMillion
                           : null
                       }
                       onClick={() =>

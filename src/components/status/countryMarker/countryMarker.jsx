@@ -15,31 +15,12 @@ class CountryMarker extends PureComponent {
       return classes.red;
     } if (value === "deaths" || value === "todayDeaths") {
       return classes.gray;
-    } if (value === "recovered") {
-      return classes.green;
-    } if (value === "active") {
-      return classes.yellow;
-    } if (value === "critical") {
-      return classes.orange;
     } if (value === "casesPerOneMillion") {
       return classes.purple;
+    }if (value === "deathsPerOneMillion") {
+      return classes.orange;
     }
     return classes.red;
-  };
-  calculateSize = (value) => {
-    if (value < 100) {
-      return classes.small;
-    } if (value < 1000) {
-      return classes.medium;
-    } if (value < 10000) {
-      return classes.large;
-    } if (value < 100000) {
-      return classes.x_large;
-    } if (value < 1000000) {
-      return classes.xx_large;
-    } if (value >= 1000000) {
-      return classes.xxx_large;
-    }
   };
 
   handleMouseover() {
@@ -54,15 +35,21 @@ class CountryMarker extends PureComponent {
     if (displayedValue === 0) {
       return null;
     }
-    const sizeClass = this.calculateSize(displayedValue);
+    const weight = (displayedValue - this.props.min) / (this.props.max - this.props.min);
     const colorClass = this.chooseColor(this.props.sortBy);
 
     return (
       <div
-        className={`${classes.marker} ${sizeClass} ${colorClass} ${this.state.activeClass}`}
+        className={`${classes.marker} ${colorClass} ${this.state.activeClass}`}
         onClick={this.props.onClick}
         onMouseLeave={this.handleMouseout}
         onMouseOver={this.handleMouseover}
+        style={{
+          opacity: weight * 0.4 + 0.6,
+          width: weight * 40 + 40,
+          height: weight * 40 + 40,
+          fontSize: weight * 8 + 8,
+        }}
       >
         {displayedValue.toLocaleString()}
       </div>

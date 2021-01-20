@@ -1,301 +1,287 @@
-[{
-        "name": "New York",
-        "lat": 42.1657,
-        "lng": -74.9481
-    },
-    {
-        "name": "Washington",
-        "lat": 47.4009,
-        "lng": -121.4905
-    },
-    {
-        "name": "California",
-        "lat": 36.1162,
-        "lng": -119.6816
-    },
-    {
-        "name": "New Jersey",
-        "lat": 40.2989,
-        "lng": -74.5210
-    },
-    {
-        "name": "Michigan",
-        "lat": 43.3266,
-        "lng": -84.5361
-    },
-    {
-        "name": "Illinois",
-        "lat": 40.3495,
-        "lng": -88.9861
-    },
-    {
-        "name": "Florida",
-        "lat": 27.7663,
-        "lng": -81.6868
-    },
-    {
-        "name": "Louisiana",
-        "lat": 31.1695,
-        "lng": -91.8678
-    },
-    {
-        "name": "Texas",
-        "lat": 31.0545,
-        "lng": -97.5635
-    },
-    {
-        "name": "Massachusetts",
-        "lat": 42.2302,
-        "lng": -71.5301
-    },
-    {
-        "name": "Georgia",
-        "lat": 33.0406,
-        "lng": -83.6431
-    },
-    {
-        "name": "Pennsylvania",
-        "lat": 40.5908,
-        "lng": -77.2098
-    },
-    {
-        "name": "Colorado",
-        "lat": 39.0598,
-        "lng": -105.3111
-    },
-    {
-        "name": "Tennessee",
-        "lat": 35.7478,
-        "lng": -86.6923
-    },
-    {
-        "name": "Wisconsin",
-        "lat": 44.2685,
-        "lng": -89.6165
-    },
-    {
-        "name": "North Carolina",
-        "lat": 35.6301,
-        "lng": -79.8064
-    },
-    {
-        "name": "Ohio",
-        "lat": 40.3888,
-        "lng": -82.7649
-    },
-    {
-        "name": "Connecticut",
-        "lat": 41.5978,
-        "lng": -72.7554
-    },
-    {
-        "name": "Maryland",
-        "lat": 39.0639,
-        "lng": -76.8021
-    },
-    {
-        "name": "South Carolina",
-        "lat": 33.8569,
-        "lng": -80.9450
-    },
-    {
-        "name": "Nevada",
-        "lat": 38.3135,
-        "lng": -117.0554
-    },
-    {
-        "name": "Virginia",
-        "lat": 37.7693,
-        "lng": -78.1700
-    },
-    {
-        "name": "Mississippi",
-        "lat": 32.7416,
-        "lng": -89.6787
-    },
-    {
-        "name": "Minnesota",
-        "lat": 45.6945,
-        "lng": -93.9002
-    },
-    {
-        "name": "Utah",
-        "lat": 40.1500,
-        "lng": -111.8624
-    },
-    {
-        "name": "Alabama",
-        "lat": 32.3182,
-        "lng": -86.9023
-    },
-    {
-        "name": "Indiana",
-        "lat": 39.8494,
-        "lng": -86.2583
-    },
-    {
-        "name": "Arkansas",
-        "lat": 34.9697,
-        "lng": -92.3731
-    },
-    {
-        "name": "Arizona",
-        "lat": 33.7298,
-        "lng": -111.4312
-    },
-    {
-        "name": "Oregon",
-        "lat": 44.5720,
-        "lng": -122.0709
-    },
-    {
-        "name": "Kentucky",
-        "lat": 37.6681,
-        "lng": -84.6701
-    },
-    {
-        "name": "District Of Columbia",
-        "lat": 38.8974,
-        "lng": -77.0268
-    },
-    {
-        "name": "Missouri",
-        "lat": 38.4561,
-        "lng": -92.2884
-    },
-    {
-        "name": "Maine",
-        "lat": 44.6939,
-        "lng": -69.3819
-    },
-    {
-        "name": "Iowa",
-        "lat": 42.0115,
-        "lng": -93.2105
-    },
-    {
-        "name": "Rhode Island",
-        "lat": 41.6809,
-        "lng": -71.5118
-    },
-    {
-        "name": "Kansas",
-        "lat": 38.5266,
-        "lng": -96.7265
-    },
-    {
-        "name": "New Hampshire",
-        "lat": 43.4525,
-        "lng": -71.5639
-    },
-    {
-        "name": "Oklahoma",
-        "lat": 35.5653,
-        "lng": -96.9289
-    },
-    {
-        "name": "Diamond Princess",
-        "lat": 35.4437,
-        "lng": 139.6380
-    },
-    {
-        "name": "Delaware",
-        "lat": 39.3185,
-        "lng": -75.5071
-    },
-    {
-        "name": "New Mexico",
-        "lat": 34.8405,
-        "lng": -106.2485
-    },
-    {
-        "name": "Nebraska",
-        "lat": 41.1254,
-        "lng": -98.2681
-    },
-    {
-        "name": "Hawaii",
-        "lat": 21.0943,
-        "lng": -157.4983
-    },
-    {
-        "name": "Idaho",
-        "lat": 44.2405,
-        "lng": -114.4788
-    },
-    {
-        "name": "Vermont",
-        "lat": 44.0459,
-        "lng": -72.7107
-    },
-    {
-        "name": "North Dakota",
-        "lat": 47.5289,
-        "lng": -99.7840
-    },
-    {
-        "name": "Grand Princess",
-        "lat": 37.6489,
-        "lng": -122.6655
-    },
-    {
-        "name": "Wyoming",
-        "lat": 42.7560,
-        "lng": -107.3025
-    },
-    {
-        "name": "Montana",
-        "lat": 46.9219,
-        "lng": -110.4544
-    },
-    {
-        "name": "Puerto Rico",
-        "lat": 18.2208,
-        "lng": -66.5901
-    },
-    {
-        "name": "Alaska",
-        "lat": 61.3707,
-        "lng": -152.4044
-    },
-    {
-        "name": "Guam",
-        "lat": 13.4443,
-        "lng": 144.7937
-    },
-    {
-        "name": "South Dakota",
-        "lat": 44.2998,
-        "lng": -99.4388
-    },
-    {
-        "name": "West Virginia",
-        "lat": 38.4912,
-        "lng": -80.9545
-    },
-    {
-        "name": "United States Virgin Islands",
-        "lat": 18.3358,
-        "lng": -64.8963
-    },
-    {
-        "name": "Diamond Princess Cruise",
-        "lat": 35.4498,
-        "lng": 139.6649
-    },
-    {
-        "name": "Grand Princess Cruise",
-        "lat": 37.71968,
-        "lng": -122.33269
-    },
-    {
-        "name": "Others",
-        "lat": 37.0902,
-        "lng": -95.7129
-    },
-    {
-        "name": "Wuhan Repatriated",
-        "lat": 37.0902,
-        "lng": -95.7129
-    }
+[
+  {
+    "name": "New York",
+    "lat": 42.1657,
+    "lng": -74.9481
+  },
+  {
+    "name": "Washington",
+    "lat": 47.4009,
+    "lng": -121.4905
+  },
+  {
+    "name": "California",
+    "lat": 36.1162,
+    "lng": -119.6816
+  },
+  {
+    "name": "New Jersey",
+    "lat": 40.2989,
+    "lng": -74.521
+  },
+  {
+    "name": "Michigan",
+    "lat": 43.3266,
+    "lng": -84.5361
+  },
+  {
+    "name": "Illinois",
+    "lat": 40.3495,
+    "lng": -88.9861
+  },
+  {
+    "name": "Florida",
+    "lat": 27.7663,
+    "lng": -81.6868
+  },
+  {
+    "name": "Louisiana",
+    "lat": 31.1695,
+    "lng": -91.8678
+  },
+  {
+    "name": "Texas",
+    "lat": 31.0545,
+    "lng": -97.5635
+  },
+  {
+    "name": "Massachusetts",
+    "lat": 42.2302,
+    "lng": -71.5301
+  },
+  {
+    "name": "Georgia",
+    "lat": 33.0406,
+    "lng": -83.6431
+  },
+  {
+    "name": "Pennsylvania",
+    "lat": 40.5908,
+    "lng": -77.2098
+  },
+  {
+    "name": "Colorado",
+    "lat": 39.0598,
+    "lng": -105.3111
+  },
+  {
+    "name": "Tennessee",
+    "lat": 35.7478,
+    "lng": -86.6923
+  },
+  {
+    "name": "Wisconsin",
+    "lat": 44.2685,
+    "lng": -89.6165
+  },
+  {
+    "name": "North Carolina",
+    "lat": 35.6301,
+    "lng": -79.8064
+  },
+  {
+    "name": "Ohio",
+    "lat": 40.3888,
+    "lng": -82.7649
+  },
+  {
+    "name": "Connecticut",
+    "lat": 41.5978,
+    "lng": -72.7554
+  },
+  {
+    "name": "Maryland",
+    "lat": 39.0639,
+    "lng": -76.8021
+  },
+  {
+    "name": "South Carolina",
+    "lat": 33.8569,
+    "lng": -80.945
+  },
+  {
+    "name": "Nevada",
+    "lat": 38.3135,
+    "lng": -117.0554
+  },
+  {
+    "name": "Virginia",
+    "lat": 37.7693,
+    "lng": -78.17
+  },
+  {
+    "name": "Mississippi",
+    "lat": 32.7416,
+    "lng": -89.6787
+  },
+  {
+    "name": "Minnesota",
+    "lat": 45.6945,
+    "lng": -93.9002
+  },
+  {
+    "name": "Utah",
+    "lat": 40.15,
+    "lng": -111.8624
+  },
+  {
+    "name": "Alabama",
+    "lat": 32.3182,
+    "lng": -86.9023
+  },
+  {
+    "name": "Indiana",
+    "lat": 39.8494,
+    "lng": -86.2583
+  },
+  {
+    "name": "Arkansas",
+    "lat": 34.9697,
+    "lng": -92.3731
+  },
+  {
+    "name": "Arizona",
+    "lat": 33.7298,
+    "lng": -111.4312
+  },
+  {
+    "name": "Oregon",
+    "lat": 44.572,
+    "lng": -122.0709
+  },
+  {
+    "name": "Kentucky",
+    "lat": 37.6681,
+    "lng": -84.6701
+  },
+  {
+    "name": "District Of Columbia",
+    "lat": 38.8974,
+    "lng": -77.0268
+  },
+  {
+    "name": "Missouri",
+    "lat": 38.4561,
+    "lng": -92.2884
+  },
+  {
+    "name": "Maine",
+    "lat": 44.6939,
+    "lng": -69.3819
+  },
+  {
+    "name": "Iowa",
+    "lat": 42.0115,
+    "lng": -93.2105
+  },
+  {
+    "name": "Rhode Island",
+    "lat": 41.6809,
+    "lng": -71.5118
+  },
+  {
+    "name": "Kansas",
+    "lat": 38.5266,
+    "lng": -96.7265
+  },
+  {
+    "name": "New Hampshire",
+    "lat": 43.4525,
+    "lng": -71.5639
+  },
+  {
+    "name": "Oklahoma",
+    "lat": 35.5653,
+    "lng": -96.9289
+  },
+  {
+    "name": "Diamond Princess",
+    "lat": 35.4437,
+    "lng": 139.638
+  },
+  {
+    "name": "Delaware",
+    "lat": 39.3185,
+    "lng": -75.5071
+  },
+  {
+    "name": "New Mexico",
+    "lat": 34.8405,
+    "lng": -106.2485
+  },
+  {
+    "name": "Nebraska",
+    "lat": 41.1254,
+    "lng": -98.2681
+  },
+  {
+    "name": "Hawaii",
+    "lat": 21.0943,
+    "lng": -157.4983
+  },
+  {
+    "name": "Idaho",
+    "lat": 44.2405,
+    "lng": -114.4788
+  },
+  {
+    "name": "Vermont",
+    "lat": 44.0459,
+    "lng": -72.7107
+  },
+  {
+    "name": "North Dakota",
+    "lat": 47.5289,
+    "lng": -99.784
+  },
+  {
+    "name": "Grand Princess",
+    "lat": 37.6489,
+    "lng": -122.6655
+  },
+  {
+    "name": "Wyoming",
+    "lat": 42.756,
+    "lng": -107.3025
+  },
+  {
+    "name": "Montana",
+    "lat": 46.9219,
+    "lng": -110.4544
+  },
+  {
+    "name": "Puerto Rico",
+    "lat": 18.2208,
+    "lng": -66.5901
+  },
+  {
+    "name": "Alaska",
+    "lat": 61.3707,
+    "lng": -152.4044
+  },
+  {
+    "name": "Guam",
+    "lat": 13.4443,
+    "lng": 144.7937
+  },
+  {
+    "name": "South Dakota",
+    "lat": 44.2998,
+    "lng": -99.4388
+  },
+  {
+    "name": "West Virginia",
+    "lat": 38.4912,
+    "lng": -80.9545
+  },
+  {
+    "name": "United States Virgin Islands",
+    "lat": 18.3358,
+    "lng": -64.8963
+  },
+  {
+    "name": "Others",
+    "lat": 37.0902,
+    "lng": -95.7129
+  }
 ]

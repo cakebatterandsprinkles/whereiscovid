@@ -1,126 +1,109 @@
 .table {
-    width: 90%;
-    max-width: 1400px;
-    margin: auto;
-    border: none;
-    border-collapse: collapse;
-    text-align: right;
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+  border: none;
+  border-collapse: collapse;
+  text-align: right;
 }
 
 .table__inner__container {
-    display: flex;
+  display: flex;
 }
 
 .table__header {
-    margin-top: 1rem;
-    height: 20vh;
-    width: auto;
+  margin-top: 1rem;
+  height: 20vh;
+  width: auto;
 }
 
 .table__header__container {
-    width: 10%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
+  width: 10%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
 .table__info {
-    width: 100%;
-    padding: 1rem 0;
-    background-color: var(--gray);
-    color: white;
-    text-align: center;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: var(--gray);
+  color: white;
+  text-align: center;
 }
 
 .table th {
-    padding: .4rem 1.5rem;
-    text-align: right;
-    background-color: #eeeeee;
-    cursor: pointer;
-    white-space: nowrap;
+  padding: 0.4rem 1.5rem;
+  text-align: right;
+  background-color: #eeeeee;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .table td {
-    padding: .3rem 1.5rem;
-    white-space: nowrap;
+  padding: 0.3rem 1.5rem;
+  white-space: nowrap;
 }
 
 .table td:first-child {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .table tr:nth-child(2n) {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .table tbody tr:hover {
-    background-color: #464646;
-    color: white;
-    font-size: 1.2rem;
-    transition: font-size 0.1s ease-in;
-}
-
-.table tbody td:hover {
-    padding: .6rem 1.5rem;
-    transition: padding 0.1s ease-in;
+  background-color: #464646;
+  color: white;
 }
 
 .table__container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 
 .active_case {
-    background-color: var(--red) !important;
-    color: white;
+  background-color: var(--red) !important;
+  color: white;
 }
 
 .active_death {
-    background-color: var(--gray) !important;
-    color: white;
+  background-color: var(--gray) !important;
+  color: white;
 }
 
-.active_recovered {
-    background-color: var(--green) !important;
-    color: white;
-}
-
-.active_active {
-    background-color: var(--yellow) !important;
-    color: white;
-}
-
-.active_critical {
-    background-color: var(--orange) !important;
-    color: white;
+.active_deathsPerMillion {
+  background-color: var(--orange) !important;
+  color: white;
 }
 
 .active_casesPerMillion {
-    background-color: var(--purple) !important;
-    color: white;
+  background-color: var(--purple) !important;
+  color: white;
 }
 
-@media(max-width:1000px) and (min-width: 500px) {
-    .table {
-        width: 80%;
-        max-width: 700px;
-    }
+@media (max-width: 1000px) and (min-width: 500px) {
+  .table {
+    width: 80%;
+    max-width: 700px;
+  }
 
-    .table th {
-        padding: .9rem .3rem;
-        font-size: .8rem;
-    }
+  .table th {
+    padding: 0.9rem 0.3rem;
+    font-size: 0.8rem;
+  }
 
-    .table td {
-        padding: .1rem .3rem;
-        font-size: .8rem;
-    }
+  .table td {
+    padding: 0.1rem 0.3rem;
+    font-size: 0.8rem;
+  }
 
-    .table__header {
-        margin-top: 1rem;
-        height: 15vh;
-        width: auto;
-    }
+  .table__header {
+    margin-top: 1rem;
+    height: 15vh;
+    width: auto;
+  }
 }
