@@ -1,5 +1,5 @@
 .info__container {
-  width: 9rem;
+  width: 11rem;
   height: 9rem;
   z-index: 20;
   background: white;
@@ -13,14 +13,14 @@
 .info__container__heading {
   font-weight: bold;
   font-size: 1rem;
-  margin-bottom: .1rem;
+  margin-bottom: 0.1rem;
 }
 
-.info__container>ul {
+.info__container > ul {
   list-style: none;
 }
 
-.info__container__ul>li {
+.info__container__ul > li {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -28,5 +28,5 @@
 
 .info__container__title {
   font-weight: bold;
-  padding-bottom: .1rem;
+  padding-bottom: 0.1rem;
 }

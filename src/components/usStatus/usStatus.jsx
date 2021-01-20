@@ -117,10 +117,6 @@ class usStatus extends PureComponent {
           style={{ height: `${this.state.mapHeight}vh`, width: "100%" }}
         >
           <GoogleMapReact
-            bootstrapURLKeys={{
-              key: "AIzaSyA3jSaFgByAz1ZNwNWJXj_HmoEMntLPEj8",
-              language: "en",
-            }}
             defaultCenter={[37.09, -95.71]}
             defaultZoom={4}
           >
