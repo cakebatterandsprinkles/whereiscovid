@@ -1,7 +1,7 @@
 import { faSort } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import GoogleMapReact from "google-map-react";
-import React, { Fragment, PureComponent } from "react";
+import React, { PureComponent } from "react";
 import RotatedTitle from "../../../assets/img/rotatedTitle.png";
 import countryCoordinates from "../../../data/countries.json";
 import CountryMarker from "../countryMarker/countryMarker";
@@ -10,7 +10,7 @@ import classes from "./worldStatus.module.css";
 
 class Status extends PureComponent {
   retrieveData() {
-    fetch("https://api.whereiscovid.info/countries.json")
+    fetch("https://disease.sh/v3/covid-19/countries")
       .then((blob) => blob.json())
       .then((data) =>
         this.setState({
@@ -54,28 +54,20 @@ class Status extends PureComponent {
     const sortedTodayDeaths = [...this.state.mainData]
       .sort((a, b) => b.todayDeaths - a.todayDeaths)
       .slice(0, 20);
-    const sortedRecovered = [...this.state.mainData]
-      .sort((a, b) => b.recovered - a.recovered)
-      .slice(0, 20);
-    const sortedActive = [...this.state.mainData]
-      .sort((a, b) => b.active - a.active)
-      .slice(0, 20);
-    const sortedCritical = [...this.state.mainData]
-      .sort((a, b) => b.critical - a.critical)
-      .slice(0, 20);
-    const sortedCasesPerOneMillion = [...this.state.mainData]
-      .sort((a, b) => b.casesPerOneMillion - a.casesPerOneMillion)
-      .slice(0, 20);
+      const sortedCasesPerOneMillion = [...this.state.mainData]
+        .sort((a, b) => b.casesPerOneMillion - a.casesPerOneMillion)
+        .slice(0, 20);
+        const sortedDeathsPerOneMillion = [...this.state.mainData]
+          .sort((a, b) => b.deathsPerOneMillion - a.deathsPerOneMillion)
+          .slice(0, 20);
     this.setState({
       top10Cases: {
         cases: sortedCase,
         deaths: sortedDeaths,
         todayCases: sortedTodayCases,
         todayDeaths: sortedTodayDeaths,
-        recovered: sortedRecovered,
-        active: sortedActive,
-        critical: sortedCritical,
         casesPerOneMillion: sortedCasesPerOneMillion,
+        deathsPerOneMillion: sortedDeathsPerOneMillion
       },
     });
   }
@@ -119,10 +111,8 @@ class Status extends PureComponent {
         todayCases: [],
         deaths: [],
         todayDeaths: [],
-        recovered: [],
-        active: [],
-        critical: [],
         casesPerOneMillion: [],
+        deathsPerOneMillion: []
       },
       sortBy: "cases",
       selectedCountry: null,
@@ -240,40 +230,6 @@ class Status extends PureComponent {
                     >
                       Today&apos;s Deaths <FontAwesomeIcon icon={faSort} />
                     </th>
-                    {this.state.isSmallScreen ? null : (
-                      <Fragment>
-                        <th
-                          className={
-                            this.state.sortBy === "recovered"
-                              ? classes.active_recovered
-                              : null
-                          }
-                          onClick={() => this.setState({ sortBy: "recovered" })}
-                        >
-                          Recovered <FontAwesomeIcon icon={faSort} />
-                        </th>
-                        <th
-                          className={
-                            this.state.sortBy === "active"
-                              ? classes.active_active
-                              : null
-                          }
-                          onClick={() => this.setState({ sortBy: "active" })}
-                        >
-                          Active <FontAwesomeIcon icon={faSort} />
-                        </th>
-                        <th
-                          className={
-                            this.state.sortBy === "critical"
-                              ? classes.active_critical
-                              : null
-                          }
-                          onClick={() => this.setState({ sortBy: "critical" })}
-                        >
-                          Critical <FontAwesomeIcon icon={faSort} />
-                        </th>{" "}
-                      </Fragment>
-                    )}
                     <th
                       className={
                         this.state.sortBy === "casesPerOneMillion"
@@ -286,6 +242,18 @@ class Status extends PureComponent {
                     >
                       Cases per 1M <FontAwesomeIcon icon={faSort} />
                     </th>
+                    <th
+                      className={
+                        this.state.sortBy === "deathsPerOneMillion"
+                          ? classes.active_casesPerMillion
+                          : null
+                      }
+                      onClick={() =>
+                        this.setState({ sortBy: "deathsPerOneMillion" })
+                      }
+                    >
+                      Deaths per 1M <FontAwesomeIcon icon={faSort} />
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -297,14 +265,8 @@ class Status extends PureComponent {
                         <td>{country.todayCases.toLocaleString()}</td>
                         <td>{country.deaths.toLocaleString()}</td>
                         <td>{country.todayDeaths.toLocaleString()}</td>
-                        {this.state.isSmallScreen ? null : (
-                          <Fragment>
-                            <td>{country.recovered.toLocaleString()}</td>
-                            <td>{country.active.toLocaleString()}</td>
-                            <td>{country.critical.toLocaleString()}</td>{" "}
-                          </Fragment>
-                        )}
                         <td>{country.casesPerOneMillion.toLocaleString()}</td>
+                        <td>{country.deathsPerOneMillion.toLocaleString()}</td>
                       </tr>
                     );
                   })}

@@ -5,7 +5,7 @@ import classes from "./landing.module.css";
 
 class Landing extends PureComponent {
   retrieveWorldData() {
-    return fetch("https://api.whereiscovid.info/countries.json")
+    return fetch("https://disease.sh/v3/covid-19/countries")
       .then((blob) => blob.json())
       .then((data) =>
         this.setState({
@@ -35,7 +35,7 @@ class Landing extends PureComponent {
   }
 
   retrieveStateData() {
-    return fetch("https://api.whereiscovid.info/states.json")
+    return fetch("https://disease.sh/v3/covid-19/states")
       .then((blob) => blob.json())
       .then((data) =>
         this.setState({

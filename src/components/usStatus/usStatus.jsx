@@ -10,7 +10,7 @@ import classes from "./usStatus.module.css";
 
 class usStatus extends PureComponent {
   retrieveData() {
-    fetch("https://api.whereiscovid.info/states.json")
+    fetch("https://disease.sh/v3/covid-19/states")
       .then((blob) => blob.json())
       .then((data) =>
         this.setState({
@@ -53,16 +53,20 @@ class usStatus extends PureComponent {
     const sortedTodayDeaths = [...this.state.mainData]
       .sort((a, b) => b.todayDeaths - a.todayDeaths)
       .slice(0, 20);
-    const sortedActive = [...this.state.mainData]
-      .sort((a, b) => b.active - a.active)
-      .slice(0, 20);
+      const sortedCasesPerOneMillion = [...this.state.mainData]
+        .sort((a, b) => b.casesPerOneMillion - a.casesPerOneMillion)
+        .slice(0, 20);
+        const sortedDeathsPerOneMillion = [...this.state.mainData]
+          .sort((a, b) => b.deathsPerOneMillion - a.deathsPerOneMillion)
+          .slice(0, 20);
     this.setState({
       top10Cases: {
         cases: sortedCase,
         deaths: sortedDeaths,
         todayCases: sortedTodayCases,
         todayDeaths: sortedTodayDeaths,
-        active: sortedActive,
+        casesPerOneMillion: sortedCasesPerOneMillion,
+        deathsPerOneMillion: sortedDeathsPerOneMillion,
       },
     });
   }
@@ -117,6 +121,10 @@ class usStatus extends PureComponent {
           style={{ height: `${this.state.mapHeight}vh`, width: "100%" }}
         >
           <GoogleMapReact
+            bootstrapURLKeys={{
+              key: "AIzaSyA3jSaFgByAz1ZNwNWJXj_HmoEMntLPEj8",
+              language: "en",
+            }}
             defaultCenter={[37.09, -95.71]}
             defaultZoom={4}
           >
@@ -216,13 +224,23 @@ class usStatus extends PureComponent {
                     </th>
                     <th
                       className={
-                        this.state.sortBy === "active"
+                        this.state.sortBy === "casesPerOneMillion"
                           ? classes.active_active
                           : null
                       }
-                      onClick={() => this.setState({ sortBy: "active" })}
+                      onClick={() => this.setState({ sortBy: "casesPerOneMillion" })}
                     >
-                      Active <FontAwesomeIcon icon={faSort} />
+                      Cases per 1M <FontAwesomeIcon icon={faSort} />
+                    </th>
+                    <th
+                      className={
+                        this.state.sortBy === "deathsPerOneMillion"
+                          ? classes.active_active
+                          : null
+                      }
+                      onClick={() => this.setState({ sortBy: "deathsPerOneMillion" })}
+                    >
+                      Deaths per 1M <FontAwesomeIcon icon={faSort} />
                     </th>
                   </tr>
                 </thead>
@@ -235,7 +253,8 @@ class usStatus extends PureComponent {
                         <td>{usState.todayCases.toLocaleString()}</td>
                         <td>{usState.deaths.toLocaleString()}</td>
                         <td>{usState.todayDeaths.toLocaleString()}</td>
-                        <td>{usState.active.toLocaleString()}</td>
+                        <td>{usState.casesPerOneMillion.toLocaleString()}</td>
+                        <td>{usState.deathsPerOneMillion.toLocaleString()}</td>
                       </tr>
                     );
                   })}
