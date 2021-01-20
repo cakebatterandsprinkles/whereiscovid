@@ -1,0 +1,7 @@
+src/serviceWorker.ts
+src/setupTests.js
+src/assets
+node_modules
+build
+.eslintrc.js
+*.config.js

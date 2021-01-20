@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
-import classes from "./articles.module.css";
 import Article from "./article/article";
+import classes from "./articles.module.css";
 
 class Articles extends PureComponent {
   constructor() {
@@ -45,7 +45,7 @@ class Articles extends PureComponent {
         </div>
         <div className={classes.article__container}>
           {this.state.articleSummaries.map(article => (
-            <Article key={article.uid} article={article} />
+            <Article article={article} key={article.uid} />
           ))}
         </div>
       </div>

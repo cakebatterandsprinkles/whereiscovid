@@ -13,15 +13,15 @@ class CountryMarker extends PureComponent {
   chooseColor = (value) => {
     if (value === "cases" || value === "todayCases") {
       return classes.red;
-    } else if (value === "deaths" || value === "todayDeaths") {
+    } if (value === "deaths" || value === "todayDeaths") {
       return classes.gray;
-    } else if (value === "recovered") {
+    } if (value === "recovered") {
       return classes.green;
-    } else if (value === "active") {
+    } if (value === "active") {
       return classes.yellow;
-    } else if (value === "critical") {
+    } if (value === "critical") {
       return classes.orange;
-    } else if (value === "casesPerOneMillion") {
+    } if (value === "casesPerOneMillion") {
       return classes.purple;
     }
     return classes.red;
@@ -29,15 +29,15 @@ class CountryMarker extends PureComponent {
   calculateSize = (value) => {
     if (value < 100) {
       return classes.small;
-    } else if (value < 1000) {
+    } if (value < 1000) {
       return classes.medium;
-    } else if (value < 10000) {
+    } if (value < 10000) {
       return classes.large;
-    } else if (value < 100000) {
+    } if (value < 100000) {
       return classes.x_large;
-    } else if (value < 1000000) {
+    } if (value < 1000000) {
       return classes.xx_large;
-    } else if (value >= 1000000) {
+    } if (value >= 1000000) {
       return classes.xxx_large;
     }
   };
@@ -59,10 +59,10 @@ class CountryMarker extends PureComponent {
 
     return (
       <div
-        onClick={this.props.onClick}
-        onMouseOver={this.handleMouseover}
-        onMouseLeave={this.handleMouseout}
         className={`${classes.marker} ${sizeClass} ${colorClass} ${this.state.activeClass}`}
+        onClick={this.props.onClick}
+        onMouseLeave={this.handleMouseout}
+        onMouseOver={this.handleMouseover}
       >
         {displayedValue.toLocaleString()}
       </div>

@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
-import classes from "./landing.module.css";
 import countryCoordinates from "../../data/countries.json";
 import stateCoordinates from "../../data/states.json";
+import classes from "./landing.module.css";
 
 class Landing extends PureComponent {
   retrieveWorldData() {
@@ -65,7 +65,7 @@ class Landing extends PureComponent {
   }
 
   getUserLocation() {
-    return fetch("https://geoip.edelkrone.com/json/").then((blob) =>
+    return fetch("http://ip-api.com/json").then((blob) =>
       blob.json()
     );
   }
@@ -90,10 +90,10 @@ class Landing extends PureComponent {
     ])
       .then((data) => ({
         country: this.state.mainWorldData.filter(
-          (countryData) => countryData.countryInfo.iso2 === data[2].country_code
+          (countryData) => countryData.countryInfo.iso2 === data[2].countryCode
         )[0],
         state: this.state.mainStateData.filter(
-          (stateData) => stateData.state === data[2].region_name
+          (stateData) => stateData.state === data[2].regionName
         )[0],
       }))
       .then((data) =>
@@ -116,7 +116,7 @@ class Landing extends PureComponent {
       <div className={classes.mainContainer}>
         <div className={classes.innerContainer}>
           <p>
-            It appears that you're connecting from{" "}
+            It appears that you&apos;re connecting from{" "}
             <span className={classes.countryName}>
               {this.state.userLocation}
             </span>

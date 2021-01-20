@@ -1,12 +1,12 @@
-import React, { PureComponent, Fragment } from "react";
-import classes from "./burgerMenu.module.css";
-import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
-  faTimes,
-  faExternalLinkAlt
+
+  faExternalLinkAlt, faTimes
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { Fragment, PureComponent } from "react";
+import { NavLink } from "react-router-dom";
+import classes from "./burgerMenu.module.css";
 
 class BurgerMenu extends PureComponent {
   constructor(props) {
@@ -35,8 +35,8 @@ class BurgerMenu extends PureComponent {
       <div>
         {!this.state.isOpen ? (
           <FontAwesomeIcon
-            icon={faBars}
             className={classes.menu__icon}
+            icon={faBars}
             onClick={this.handleOnClick}
           />
         ) : (
@@ -45,58 +45,58 @@ class BurgerMenu extends PureComponent {
             <div className={classes.navbar__side__container}>
               <div className={classes.navbar__side__x}>
                 <FontAwesomeIcon
-                  icon={faTimes}
                   className={classes.menu__icon}
+                  icon={faTimes}
                   onClick={this.handleClose}
                 />
               </div>
               <div className={classes.navbar__container}>
                 <NavLink
-                  className={`${classes.navbar__item} ${this.state.visibilityClass}`}
-                  exact
-                  to="/world-status"
                   activeClassName="navbar__item--active"
                   activeStyle={{
                     backgroundColor: "var(--gray)",
                     color: "white",
                     fontWeight: "bold"
                   }}
+                  className={`${classes.navbar__item} ${this.state.visibilityClass}`}
+                  exact
                   onClick={this.handleClose}
+                  to="/world-status"
                 >
                   World Status
                 </NavLink>
                 <NavLink
-                  className={`${classes.navbar__item} ${this.state.visibilityClass}`}
-                  exact
-                  to="/us-status"
                   activeClassName="navbar__item--active"
                   activeStyle={{
                     backgroundColor: "var(--gray)",
                     color: "white",
                     fontWeight: "bold"
                   }}
+                  className={`${classes.navbar__item} ${this.state.visibilityClass}`}
+                  exact
                   onClick={this.handleClose}
+                  to="/us-status"
                 >
                   US Status
                 </NavLink>
                 <NavLink
-                  className={`${classes.navbar__item} ${this.state.visibilityClass}`}
-                  to="/articles"
                   activeClassName="navbar__item--active"
                   activeStyle={{
                     backgroundColor: "var(--gray)",
                     color: "white",
                     fontWeight: "bold"
                   }}
+                  className={`${classes.navbar__item} ${this.state.visibilityClass}`}
                   onClick={this.handleClose}
+                  to="/articles"
                 >
                   Articles
                 </NavLink>
                 <a
                   className={`${classes.navbar__item} ${this.state.visibilityClass}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   href="https://www.cdc.gov/coronavirus/2019-ncov/index.html"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   CDC Guidelines <FontAwesomeIcon icon={faExternalLinkAlt} />
                 </a>

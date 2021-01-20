@@ -1,12 +1,12 @@
-import React, { PureComponent, Fragment } from "react";
-import classes from "./usStatus.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
-import stateCoordinates from "../../data/states";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import GoogleMapReact from "google-map-react";
-import StateMarker from "../usStatus/stateMarker/stateMarker";
+import React, { PureComponent } from "react";
 import RotatedTitle from "../../assets/img/rotatedTitle.png";
+import stateCoordinates from "../../data/states";
 import StateInfoBox from "../usStatus/stateInfoBox/stateInfoBox";
+import StateMarker from "../usStatus/stateMarker/stateMarker";
+import classes from "./usStatus.module.css";
 
 class usStatus extends PureComponent {
   retrieveData() {
@@ -113,16 +113,16 @@ class usStatus extends PureComponent {
     return (
       <div>
         <div
-          style={{ height: `${this.state.mapHeight}vh`, width: "100%" }}
           onClick={() => this.setState({ selectedState: null })}
+          style={{ height: `${this.state.mapHeight}vh`, width: "100%" }}
         >
           <GoogleMapReact
-            defaultCenter={[37.09, -95.71]}
-            defaultZoom={4}
             bootstrapURLKeys={{
               key: "AIzaSyA3jSaFgByAz1ZNwNWJXj_HmoEMntLPEj8",
               language: "en",
             }}
+            defaultCenter={[37.09, -95.71]}
+            defaultZoom={4}
           >
             {this.state.mainData
               .filter((usState) => {
@@ -133,24 +133,24 @@ class usStatus extends PureComponent {
               .map((usState) => {
                 return (
                   <StateMarker
+                    data={usState}
                     key={usState.state}
                     lat={usState.latitude}
                     lng={usState.longitude}
-                    data={usState}
-                    sortBy={this.state.sortBy}
                     onClick={(event) => {
                       this.setState({ selectedState: usState });
                       event.stopPropagation();
                     }}
+                    sortBy={this.state.sortBy}
                   />
                 );
               })}
 
             {this.state.selectedState ? (
               <StateInfoBox
-                stateData={this.state.selectedState}
                 lat={this.state.selectedState.latitude}
                 lng={this.state.selectedState.longitude}
+                stateData={this.state.selectedState}
               />
             ) : null}
           </GoogleMapReact>
@@ -165,9 +165,9 @@ class usStatus extends PureComponent {
             <div className={classes.table__inner__container}>
               <div className={classes.table__header__container}>
                 <img
+                  alt="table title"
                   className={classes.table__header}
                   src={RotatedTitle}
-                  alt="table title"
                 />
               </div>
               <table className={classes.table}>
@@ -175,56 +175,56 @@ class usStatus extends PureComponent {
                   <tr>
                     <th>State</th>
                     <th
-                      onClick={() =>
-                        this.setState({
-                          sortBy: "cases",
-                        })
-                      }
                       className={
                         this.state.sortBy === "cases"
                           ? classes.active_case
                           : null
                       }
+                      onClick={() =>
+                        this.setState({
+                          sortBy: "cases",
+                        })
+                      }
                     >
                       Cases <FontAwesomeIcon icon={faSort} />
                     </th>
                     <th
-                      onClick={() => this.setState({ sortBy: "todayCases" })}
                       className={
                         this.state.sortBy === "todayCases"
                           ? classes.active_case
                           : null
                       }
+                      onClick={() => this.setState({ sortBy: "todayCases" })}
                     >
-                      Today's Cases <FontAwesomeIcon icon={faSort} />
+                      Today&apos;s Cases <FontAwesomeIcon icon={faSort} />
                     </th>
                     <th
-                      onClick={() => this.setState({ sortBy: "deaths" })}
                       className={
                         this.state.sortBy === "deaths"
                           ? classes.active_death
                           : null
                       }
+                      onClick={() => this.setState({ sortBy: "deaths" })}
                     >
                       Deaths <FontAwesomeIcon icon={faSort} />
                     </th>
                     <th
-                      onClick={() => this.setState({ sortBy: "todayDeaths" })}
                       className={
                         this.state.sortBy === "todayDeaths"
                           ? classes.active_death
                           : null
                       }
+                      onClick={() => this.setState({ sortBy: "todayDeaths" })}
                     >
-                      Today's Deaths <FontAwesomeIcon icon={faSort} />
+                      Today&apos;s Deaths <FontAwesomeIcon icon={faSort} />
                     </th>
                     <th
-                      onClick={() => this.setState({ sortBy: "active" })}
                       className={
                         this.state.sortBy === "active"
                           ? classes.active_active
                           : null
                       }
+                      onClick={() => this.setState({ sortBy: "active" })}
                     >
                       Active <FontAwesomeIcon icon={faSort} />
                     </th>

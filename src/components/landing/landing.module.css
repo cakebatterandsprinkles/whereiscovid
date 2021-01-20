@@ -19,9 +19,9 @@
   background: rgba(255, 255, 255, 0.795);
 }
 
-.innerContainer>p {
+.innerContainer > p {
   font-size: 1.2rem;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
 }
 
 .countryName {
@@ -43,16 +43,15 @@ span.case {
 }
 
 @media (max-width: 950px) {
-
   span.death,
   span.case,
   .countryName {
-    font-size: 1.2rem
+    font-size: 1.2rem;
   }
 
-  .innerContainer>p {
+  .innerContainer > p {
     font-size: 1rem;
-    margin-bottom: .8rem
+    margin-bottom: 0.8rem;
   }
 
   .innerContainer {

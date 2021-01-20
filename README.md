@@ -40,7 +40,7 @@ A COVID19 tracking app. This app provides recent information about Coronavirus w
 2. [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 3. [novelcovid API](https://github.com/novelcovid/api)
 4. [pubmed API](https://www.ncbi.nlm.nih.gov/home/develop/api/)
-5. [GeoIP](https://freegeoip.app/)
+5. [GeoIP](http://ip-api.com/json/)
 
 All contributions are welcome and encouraged.
 

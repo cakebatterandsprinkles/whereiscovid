@@ -7,10 +7,10 @@ const Footer = props => (
       Licensed under MIT. Contribute to the project at{" "}
       <span>
         <a
-          href="https://github.com/cakebatterandsprinkles/whereiscovid"
-          target="_blank"
-          rel="noopener noreferrer"
           className={classes.footer__link}
+          href="https://github.com/cakebatterandsprinkles/whereiscovid"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           GitHub
         </a>

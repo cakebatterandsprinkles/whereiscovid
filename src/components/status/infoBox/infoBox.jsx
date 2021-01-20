@@ -16,7 +16,7 @@ function InfoBox(props) {
         </li>
         <li>
           <span className={classes.info__container__title}>
-            Today's Cases: &nbsp;
+            Today&apos;s Cases: &nbsp;
           </span>
           {props.countryData.todayCases.toLocaleString()}
         </li>
@@ -26,7 +26,7 @@ function InfoBox(props) {
         </li>
         <li>
           <span className={classes.info__container__title}>
-            Today's Deaths: &nbsp;
+            Today&apos;s Deaths: &nbsp;
           </span>
           {props.countryData.todayDeaths.toLocaleString()}
         </li>

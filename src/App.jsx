@@ -1,14 +1,14 @@
+import { createBrowserHistory } from "history";
 import React from "react";
+import ReactGA from "react-ga";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
+import Articles from "./components/articles/articles";
+import Footer from "./components/footer/footer";
+import Landing from "./components/landing/landing";
+import Navbar from "./components/navbar/navbar";
 import WorldStatus from "./components/status/worldStatus/worldStatus";
 import UsStatus from "./components/usStatus/usStatus";
-import Navbar from "./components/navbar/navbar";
-import Footer from "./components/footer/footer";
-import Articles from "./components/articles/articles";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { createBrowserHistory } from "history";
-import ReactGA from "react-ga";
-import Landing from "./components/landing/landing";
 
 const history = createBrowserHistory();
 
@@ -25,10 +25,10 @@ function App() {
       <div className="App">
         <Navbar />
         <Switch>
-          <Route path="/articles" component={Articles} />
-          <Route path="/us-status" component={UsStatus} />
-          <Route path="/world-status" component={WorldStatus} />
-          <Route path="/" component={Landing} />
+          <Route component={Articles} path="/articles" />
+          <Route component={UsStatus} path="/us-status" />
+          <Route component={WorldStatus} path="/world-status" />
+          <Route component={Landing} path="/" />
         </Switch>
         <Footer />
       </div>

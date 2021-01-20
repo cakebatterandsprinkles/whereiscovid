@@ -1,6 +1,6 @@
 import React from "react";
-import classes from "./article.module.css";
 import HorizontalLine from "../horizontalLine/horizontalLine";
+import classes from "./article.module.css";
 
 function Article(props) {
   return (
@@ -10,11 +10,11 @@ function Article(props) {
         <span className={classes.card__pubdate}>{props.article.pubdate}</span>
       </p>
       <a
-        href={`https://www.ncbi.nlm.nih.gov/pubmed/${props.article.uid}`}
-        target="_blank"
-        rel="noopener noreferrer"
         alt="article link"
         className={classes.card__link}
+        href={`https://www.ncbi.nlm.nih.gov/pubmed/${props.article.uid}`}
+        rel="noopener noreferrer"
+        target="_blank"
       >
         {" "}
         <p className={classes.card__header}>{props.article.title}</p>
