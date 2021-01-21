@@ -65,7 +65,7 @@ class Landing extends PureComponent {
   }
 
   getUserLocation() {
-    return fetch("http://ip-api.com/json").then((blob) =>
+    return fetch("https://ifconfig.co/json").then((blob) =>
       blob.json()
     );
   }
@@ -90,10 +90,10 @@ class Landing extends PureComponent {
     ])
       .then((data) => ({
         country: this.state.mainWorldData.filter(
-          (countryData) => countryData.countryInfo.iso2 === data[2].countryCode
+          (countryData) => countryData.countryInfo.iso2 === data.country_iso
         )[0],
         state: this.state.mainStateData.filter(
-          (stateData) => stateData.state === data[2].regionName
+          (stateData) => stateData.state === data.region_name
         )[0],
       }))
       .then((data) =>
