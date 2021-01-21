@@ -65,7 +65,7 @@ class Landing extends PureComponent {
   }
 
   getUserLocation() {
-    return fetch("https://ifconfig.co/json").then((blob) =>
+    return fetch("https://freegeoip.app/json/").then((blob) =>
       blob.json()
     );
   }
@@ -90,10 +90,10 @@ class Landing extends PureComponent {
     ])
       .then((data) => ({
         country: this.state.mainWorldData.filter(
-          (countryData) => countryData.countryInfo.iso2 === data.country_iso
+          (countryData) => countryData.countryInfo.iso2 === data[2].country_code
         )[0],
         state: this.state.mainStateData.filter(
-          (stateData) => stateData.state === data.region_name
+          (stateData) => stateData.state === data[2].region_name
         )[0],
       }))
       .then((data) =>
