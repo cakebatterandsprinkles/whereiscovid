@@ -65,9 +65,7 @@ class Landing extends PureComponent {
   }
 
   getUserLocation() {
-    return fetch("https://freegeoip.app/json/").then((blob) =>
-      blob.json()
-    );
+    return fetch("https://freegeoip.app/json/").then((blob) => blob.json());
   }
 
   constructor() {
@@ -130,39 +128,36 @@ class Landing extends PureComponent {
             </span>{" "}
             is as follows:{" "}
           </p>
-          <p>
-            {" "}
-            There has been{" "}
-            <span className={classes.case}>
+          <div>
+            <p>
               {" "}
-              {this.state.locationCase.toLocaleString()}{" "}
-            </span>
-            cases, of which{" "}
-            <span className={classes.case}>
+              Total Cases:{" "}
+              <span className={classes.case}>
+                {this.state.locationCase.toLocaleString()}{" "}
+              </span>
+            </p>
+            <p>
               {" "}
-              {this.state.locationTodayCase.toLocaleString()}{" "}
-            </span>{" "}
-            was reported today.
-          </p>
-          <p>
-            {" "}
-            Of these{" "}
-            <span className={classes.case}>
+              Cases Reported Today:{" "}
+              <span className={classes.case}>
+                {this.state.locationTodayCase.toLocaleString()}{" "}
+              </span>
+            </p>
+            <p>
               {" "}
-              {this.state.locationCase.toLocaleString()}{" "}
-            </span>
-            cases, there were{" "}
-            <span className={classes.death}>
+              Total Deaths:{" "}
+              <span className={classes.death}>
+                {this.state.locationDeath.toLocaleString()}{" "}
+              </span>
+            </p>
+            <p>
               {" "}
-              {this.state.locationDeath.toLocaleString()}{" "}
-            </span>{" "}
-            deaths, of which{" "}
-            <span className={classes.death}>
-              {" "}
-              {this.state.locationTodayDeath.toLocaleString()}{" "}
-            </span>{" "}
-            were reported today.
-          </p>
+              Deaths Reported Today:{" "}
+              <span className={classes.death}>
+                {this.state.locationTodayDeath.toLocaleString()}{" "}
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     );
