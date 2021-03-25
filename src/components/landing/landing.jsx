@@ -128,7 +128,7 @@ class Landing extends PureComponent {
             </span>{" "}
             is as follows:{" "}
           </p>
-          <div>
+          <div className={classes.data}>
             <p>
               {" "}
               Total Cases:{" "}

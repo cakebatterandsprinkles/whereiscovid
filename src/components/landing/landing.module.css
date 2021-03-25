@@ -25,6 +25,10 @@
   margin-bottom: 0.8rem;
 }
 
+.data {
+  font-size: 1rem;
+}
+
 .countryName {
   color: var(--blue);
   font-size: 1.5rem;
@@ -60,6 +64,5 @@ span.case {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 4rem 3rem;
   }
 }
