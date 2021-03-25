@@ -87,7 +87,7 @@ class Status extends PureComponent {
       .sort((a, b) => b.deathsPerOneMillion - a.deathsPerOneMillion)
       .slice(0, 20);
     this.setState({
-      top10Cases: {
+      top20Cases: {
         cases: sortedCase,
         deaths: sortedDeaths,
         todayCases: sortedTodayCases,
@@ -132,7 +132,7 @@ class Status extends PureComponent {
     super(props);
     this.state = {
       mainData: [],
-      top10Cases: {
+      top20Cases: {
         cases: [],
         todayCases: [],
         deaths: [],
@@ -222,13 +222,6 @@ class Status extends PureComponent {
             ))}
           </select>
           <div className={classes.table__inner__container}>
-            {/* <div className={classes.table__header__container}>
-              <img
-                alt="table title"
-                className={classes.table__header}
-                src={RotatedTitle}
-              />
-            </div> */}
             <table className={classes.table}>
               <thead>
                 <tr>
@@ -247,7 +240,7 @@ class Status extends PureComponent {
                 </tr>
               </thead>
               <tbody>
-                {this.state.top10Cases[this.state.sortBy].map((country) => {
+                {this.state.top20Cases[this.state.sortBy].map((country) => {
                   return (
                     <tr key={country.country}>
                       <td className={classes.country}>{country.country}</td>
