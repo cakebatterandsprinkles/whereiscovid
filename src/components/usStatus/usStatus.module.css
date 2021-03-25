@@ -162,6 +162,9 @@
     width: 50%;
     border-radius: 10px;
     outline: none;
+    padding: 0.2rem 0;
+    margin-top: 0.5rem;
+    cursor: pointer;
   }
 
   table .state {
