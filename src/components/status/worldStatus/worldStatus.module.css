@@ -1,3 +1,8 @@
+.mainWrapper {
+  padding: 3.5rem 0;
+  width: 100vw;
+}
+
 .table {
   width: 90%;
   max-width: 1400px;
@@ -25,10 +30,12 @@
 }
 
 .table__info {
-  width: 100%;
-  padding: 1rem 0;
-  background-color: var(--gray);
-  color: white;
+  width: 80%;
+  padding: 0.5rem 0;
+  background-color: #ffd100;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-weight: bold;
   text-align: center;
 }
 
@@ -44,15 +51,12 @@
   padding: 0.3rem 1.5rem;
   white-space: nowrap;
 }
-
 .table td:first-child {
   font-weight: bold;
 }
-
 .table tr:nth-child(2n) {
   background-color: #f5f5f5;
 }
-
 .table tbody tr:hover {
   background-color: #464646;
   color: white;
@@ -85,6 +89,9 @@
   color: white;
 }
 
+.field__select {
+  display: none;
+}
 @media (max-width: 1400px) and (min-width: 1130px) {
   .table {
     width: 70%;
@@ -101,7 +108,6 @@
     font-size: 1rem;
   }
 }
-
 @media (max-width: 1130px) and (min-width: 950px) {
   .table {
     width: 70%;
@@ -124,7 +130,6 @@
     width: auto;
   }
 }
-
 @media (max-width: 950px) and (min-width: 500px) {
   .table {
     width: 90%;
@@ -152,7 +157,43 @@
     font-size: 0.8rem;
   }
 }
+@media (max-width: 800px) {
+  .table th {
+    display: none;
+  }
 
+  .table td {
+    display: none;
+  }
+
+  .field__select {
+    display: block;
+    width: 50%;
+    border-radius: 10px;
+    outline: none;
+  }
+
+  table .country {
+    display: table-cell;
+  }
+
+  table th.active_case {
+    display: table-cell;
+  }
+  table td.active_row {
+    display: table-cell;
+  }
+
+  table th.active_death {
+    display: table-cell;
+  }
+  table th.active_casesPerMillion {
+    display: table-cell;
+  }
+  table th.active_deathsPerMillion {
+    display: table-cell;
+  }
+}
 @media (max-width: 500px) {
   .table {
     width: 90%;
