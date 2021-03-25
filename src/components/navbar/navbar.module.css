@@ -38,8 +38,8 @@
   justify-content: center;
   align-items: center;
   padding: 0 1rem;
-  font-family: "Oswald", "sans-serif";
   font-size: 1.6rem;
+  font-weight: bold;
 }
 
 .navbar__header__link {
@@ -58,8 +58,21 @@
   }
 }
 
+@media (max-width: 600px) {
+  .navbar__header {
+    font-size: 1.1rem;
+    padding: 0 0.5rem;
+  }
+
+  .navbar__item {
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 1.15rem 0.5rem;
+  }
+}
+
 @media (max-width: 250px) {
   .navbar__header {
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 }
