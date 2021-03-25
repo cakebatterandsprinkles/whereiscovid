@@ -1,3 +1,8 @@
+.mainWrapper {
+  padding: 3.5rem 0;
+  width: 100vw;
+}
+
 .table {
   width: 90%;
   max-width: 1400px;
@@ -11,24 +16,13 @@
   display: flex;
 }
 
-.table__header {
-  margin-top: 1rem;
-  height: 20vh;
-  width: auto;
-}
-
-.table__header__container {
-  width: 10%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-}
-
 .table__info {
-  width: 100%;
-  padding: 1rem 0;
-  background-color: var(--gray);
-  color: white;
+  width: 80%;
+  padding: 0.5rem 0;
+  background-color: #ffd100;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-weight: bold;
   text-align: center;
 }
 
@@ -85,9 +79,29 @@
   color: white;
 }
 
-@media (max-width: 1000px) and (min-width: 500px) {
+.field__select {
+  display: none;
+}
+
+@media (max-width: 1400px) and (min-width: 1130px) {
   .table {
-    width: 80%;
+    width: 70%;
+    max-width: 1000px;
+  }
+
+  .table th {
+    padding: 0.2rem 0.6rem;
+    font-size: 1rem;
+  }
+
+  .table td {
+    padding: 0.2rem 0.6rem;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1130px) and (min-width: 950px) {
+  .table {
+    width: 70%;
     max-width: 700px;
   }
 
@@ -105,5 +119,90 @@
     margin-top: 1rem;
     height: 15vh;
     width: auto;
+  }
+}
+@media (max-width: 950px) and (min-width: 500px) {
+  .table {
+    width: 90%;
+    max-width: 700px;
+  }
+
+  .table th {
+    padding: 0.6rem 0.3rem;
+    font-size: 0.8rem;
+  }
+
+  .table td {
+    padding: 0.1rem 0.3rem;
+    font-size: 0.8rem;
+  }
+
+  .table__header {
+    margin-top: 1rem;
+    height: 10vh;
+    width: auto;
+  }
+
+  .table__info {
+    padding: 0.8rem 0;
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 800px) {
+  .table th {
+    display: none;
+  }
+
+  .table td {
+    display: none;
+  }
+
+  .field__select {
+    display: block;
+    width: 50%;
+    border-radius: 10px;
+    outline: none;
+  }
+
+  table .state {
+    display: table-cell;
+  }
+
+  table th.active_case {
+    display: table-cell;
+  }
+  table td.active_row {
+    display: table-cell;
+  }
+
+  table th.active_death {
+    display: table-cell;
+  }
+  table th.active_casesPerMillion {
+    display: table-cell;
+  }
+  table th.active_deathsPerMillion {
+    display: table-cell;
+  }
+}
+@media (max-width: 500px) {
+  .table {
+    width: 90%;
+    max-width: 450px;
+  }
+
+  .table th {
+    padding: 0.4rem 0.2rem;
+    font-size: 0.7rem;
+  }
+
+  .table td {
+    padding: 0.1rem 0.3rem;
+    font-size: 0.7rem;
+  }
+
+  .table__info {
+    padding: 0.6rem 0;
+    font-size: 0.7rem;
   }
 }
