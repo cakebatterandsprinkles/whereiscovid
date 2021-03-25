@@ -1,12 +1,12 @@
 import React from "react";
 
-const horizontalLine = props => (
+const horizontalLine = (props) => (
   <hr
     style={{
       color: props.color,
       backgroundColor: props.color,
-      height: 1,
-      width: "100%"
+      width: "100%",
+      marginTop: "0",
     }}
   />
 );

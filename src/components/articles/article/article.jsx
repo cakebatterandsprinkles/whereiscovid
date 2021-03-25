@@ -22,7 +22,7 @@ function Article(props) {
 
       <HorizontalLine color="#202020" />
       <p className={classes.card__authors}>
-        {props.article.authors.map(author => author.name).join(", ")}
+        {props.article.authors.map((author) => author.name).join(", ")}
       </p>
     </div>
   );

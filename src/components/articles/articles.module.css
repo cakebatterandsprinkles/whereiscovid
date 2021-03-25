@@ -1,6 +1,8 @@
 .article__main__container {
   display: flex;
   flex-direction: column;
+  padding: 3.4rem 0;
+  width: 100vw;
 }
 
 .article__container {
@@ -9,30 +11,21 @@
   justify-content: center;
   align-items: center;
   padding-top: 1rem;
-  background: url(../../assets/img/tree.jpg) no-repeat center center fixed;
+  background: url(../../assets/img/pawel-czerwinski-WteXlFwm0jY-unsplash.jpg)
+    no-repeat center center fixed;
   /* background-size: cover; */
-}
-
-.article__info {
-  width: 100%;
-  padding: 1rem;
-  background-color: var(--gray);
-  text-align: center;
-  color: white;
-  font-weight: bold
 }
 
 .article__main__header {
   max-width: 70%;
   padding: 1rem;
-  font-family: "Oswald", "sans-serif";
-  font-weight: bold;
+  font-family: var(--headingFont);
   font-size: 2rem;
   align-self: center;
 }
 
-@media (max-width: 900px) {
-  .article__info>p {
-    font-size: .7rem;
+@media (max-width: 600px) {
+  .article__main__header {
+    font-size: 1.25rem;
   }
 }
